@@ -1,0 +1,30 @@
+# CUB-200-2011 for the cross-domain part of the final round (docs/preregistration/final_round.md, (B)). Prepared by scripts/prepare_data/cub.py.
+name: cub
+archive:
+  file: raw/CUB_200_2011.tgz   # under CCP_DATA
+  url: "https://data.caltech.edu/records/65de6-vp158/files/CUB_200_2011.tgz?download=1"
+  md5: 97eceeb196236b17998738112f37df78     # published by Caltech; also the research repository's copy (scripts/download.sh)
+  sha256: 0c685df5597a8b24909f6a7c9db6d11e008733779a671760afef78feb49bf081
+  bytes: 1150585339
+class_split: "FRN rule on the 1-based class id i (classes.txt): i % 2 == 0 train (100), i % 4 == 1 val (50), i % 4 == 3 test (50)"
+bounding_boxes: "not used: whole images (the research repository's FRN pipeline crops to the boxes; this round does not)"
+sizes: {train: 5903, val: 2927, test: 2958}
+classes: {train: 100, val: 50, test: 50}
+global_index: "train 0-5902 | val 5903-8829 | test 8830-11787 (split order, then class id, then image id)"
+channel_order: RGB
+views:
+  eval84: {transform: "PIL Resize(92) short side, bilinear + CenterCrop(84) (mini's eval84)", used_by: [frozen_feat_mini, snatcher_f_mini]}
+  whole84: {transform: "whole image, PIL LANCZOS resize to 84x84 (mini's whole84)", used_by: [dnpg_mini_seed*]}
+prepared_sha256:   # scripts/prepare_data/cub.py (2026-10-05)
+  eval84_train: aafac6e39bd105a25d699c5ba1d5d750f152c3c0bf7d9d5303c37cdbd85b3cdd
+  eval84_val: d772e6a21a2c438b246d8ec68e88fa4f5e3031fdf01cfe1ae49855b0d584594c
+  eval84_test: a9105e2d4c7bfca4612ffa4e490de4cca349607607200409afa5ea00067df267
+  whole84_train: 69f24dd1817ef839a49f7073bc085d4e02b05dd32a8381316ad17f73f53182ad
+  whole84_val: 9ec17dc05abeea6378c0a141992d76254542e7b2674c981f097c7961e2dacf5b
+  whole84_test: 78e79fee8e29ec38a7c5f100ed2ae4e1fdcf54a2d6220f148392604e11e0ffc4
+  index: a4568cba63ce7d63905c1d4e1ef73918a75658f8b3c84f0964d54251fa53884a
+  # foundation round, analysis view (docs/preregistration/foundation_round.md; 2026-10-06): PIL Resize(256, bicubic) short side + CenterCrop(224)
+  eval224_train: bc144848c70b5284f7e9acfcd75564650980834afdf1793df9cd0f2719c78d81
+  eval224_val: ce77089e267b01295a7707d26e51f98fd583590d0af4266a0f1699abfbb9a55e
+  eval224_test: 7338b7a79f7f74a2d23a84a1b40eff77fd121af1eb4b0ca4aa6f82f921baa080
+manifests: [val_fsor_5way_1shot, val_fsor_5way_5shot, test_fsor_5way_1shot, test_fsor_5way_5shot]

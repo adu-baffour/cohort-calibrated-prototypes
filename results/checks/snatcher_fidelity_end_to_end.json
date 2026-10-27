@@ -1,0 +1,73 @@
+{
+ "check": "SnaTCHer-F adapter vs SnaTCHer's FSLTrainer.evaluate_test, end to end and on the same encoder batch",
+ "episodes": "first 50 of mini valA_fsor_5way_{1,5}shot (validation)",
+ "results": {
+  "1shot": {
+   "end_to_end": {
+    "max_abs_diff": {
+     "S": 7.62939453125e-06,
+     "logits": 0.0,
+     "Dist": 0.0,
+     "acc": 3.337860107421875e-06
+    },
+    "pass_1e-4": true,
+    "S_auroc_ours": 73.89013333333334,
+    "S_auroc_theirs": 73.89013333333334,
+    "S_auroc_mean_abs_diff": 0.0,
+    "S_auroc_max_abs_episode_diff": 0.0
+   },
+   "same_encoder_batch": {
+    "max_abs_diff": {
+     "S": 7.62939453125e-06,
+     "logits": 0.0,
+     "Dist": 0.0,
+     "acc": 3.337860107421875e-06
+    },
+    "pass_1e-4": true,
+    "S_auroc_ours": 73.89013333333334,
+    "S_auroc_theirs": 73.89013333333334,
+    "S_auroc_mean_abs_diff": 0.0,
+    "S_auroc_max_abs_episode_diff": 0.0
+   },
+   "n_episodes": 50
+  },
+  "5shot": {
+   "end_to_end": {
+    "max_abs_diff": {
+     "S": 0.00316619873046875,
+     "logits": 0.0018215179443359375,
+     "Dist": 0.0013103485107421875,
+     "acc": 3.337860107421875e-06
+    },
+    "pass_1e-4": false,
+    "S_auroc_ours": 84.7384888888889,
+    "S_auroc_theirs": 84.73884444444444,
+    "S_auroc_mean_abs_diff": -0.000355555555543674,
+    "S_auroc_max_abs_episode_diff": 0.017777777777780557
+   },
+   "same_encoder_batch": {
+    "max_abs_diff": {
+     "S": 5.7220458984375e-06,
+     "logits": 0.0,
+     "Dist": 0.0,
+     "acc": 3.337860107421875e-06
+    },
+    "pass_1e-4": true,
+    "S_auroc_ours": 84.73884444444444,
+    "S_auroc_theirs": 84.73884444444444,
+    "S_auroc_mean_abs_diff": 0.0,
+    "S_auroc_max_abs_episode_diff": 0.0
+   },
+   "n_episodes": 50
+  }
+ },
+ "script": "scripts/fidelity/snatcher_fidelity.py",
+ "script_sha256": "b6cf635a5aaee6aaa61218b1322cfe9767b32975109b7faafe6c5ac30f795cff",
+ "git_head": "67a54cb6c21a7ced94248d038ed1d5c5de180e13",
+ "uncommitted_code_changes": true,
+ "third_party": "SnaTCHer @ 335c42469f0a7ad72c5c3480c8effc8c293823e0",
+ "torch": "2.14.0+cu130",
+ "cuda": "13.0",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "when": "2026-10-26 14:32:10"
+}

@@ -1,0 +1,20 @@
+# Frozen FEAT ResNet-12 pre-training checkpoint (mini); training-free host. Paper: Tables 2, 4, 5 and 7; Figures 2-4.
+name: frozen_feat_mini
+kind: feat_frozen
+dataset: mini
+view: eval84
+channel_order: RGB
+feature_dtype: fp32   # stored precision of the raw GAP pair in the registered test path
+channels_last: true
+checkpoint:
+  path: "third_party/feat/mini/Res12-pre.pth"
+  sha256: "48e681c65e0a8a28d24f586f963da1f8b9e8aff339201f7380365bdd0ecc5c88"
+  source: "https://drive.google.com/file/d/1WCGj_Tu16n_vmv7JbnDJz8RqZKvUdYBn (FEAT README, pre-trained Res12)"
+  license: "link only (see THIRD_PARTY_LICENSES.md)"
+bank:
+  file: banks/mini/frozen_feat_mini.npz
+  sha256: 829c3d9f7b45083c3a6cc9228879a9ff62cc3372c6127d5fcc423a6052bb271e
+  embed: full_split
+  base_images: "all 38,400"
+scores: [COS, COSF, CCP-A, CCP-S]
+recorded_path: research/fsor/fsor_final.py run_mini (MINI bundle part, token eaa3aab9d353da1e)

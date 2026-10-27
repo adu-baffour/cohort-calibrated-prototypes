@@ -1,0 +1,29 @@
+{
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "protocol": "python scripts/cost_snatcher.py [--episodes 200] [--warmup 20]",
+ "episodes": 200,
+ "warmup": 20,
+ "per_episode": {
+  "1shot": {
+   "SnaTCHer-F (own score S, incl. its fp32 forward)": {
+    "ms_per_episode": 33.98451649583876,
+    "peak_extra_MB": 816.6572265625
+   },
+   "CCP-A on SnaTCHer-F features (extra over SnaTCHer-F: flip-view forward + CCP-A)": {
+    "ms_per_episode": 31.683335998095572,
+    "peak_extra_MB": 417.67578125
+   }
+  },
+  "5shot": {
+   "SnaTCHer-F (own score S, incl. its fp32 forward)": {
+    "ms_per_episode": 39.502697001444176,
+    "peak_extra_MB": 920.27197265625
+   },
+   "CCP-A on SnaTCHer-F features (extra over SnaTCHer-F: flip-view forward + CCP-A)": {
+    "ms_per_episode": 35.55892901029438,
+    "peak_extra_MB": 470.9697265625
+   }
+  }
+ },
+ "when": "2026-10-06 15:01:21"
+}

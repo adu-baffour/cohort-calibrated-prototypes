@@ -1,0 +1,21 @@
+# mini-ImageNet (Ravi & Larochelle 64 / 16 / 20; FEAT split CSVs). Prepared by scripts/prepare_data/mini.py; see docs/data.md.
+name: mini
+source: "original-resolution JPEGs, e.g. the FEAT / FRN miniImageNet.zip (figshare 26340226, md5 f93ae1b058db5d6e906150e55804f8f1)"
+split_csv: "https://github.com/Sha-Lab/FEAT/tree/47bdc7c1672e00b027c67469d0291e7502918950/data/miniimagenet/split"
+sizes: {train: 38400, val: 9600, test: 12000}
+classes: {train: 64, val: 16, test: 20}
+global_index: "train 0-38399 | val 38400-47999 | test 48000-59999 (split order, then sorted wnid, then sorted file name)"
+channel_order: RGB
+normalisation: {mean: [120.39586422, 115.59361427, 104.54012653], std: [70.68188272, 68.27635443, 72.54505529], scale: "divide by 255 first"}
+views:
+  eval84: {transform: "PIL Resize(92) short side, bilinear + CenterCrop(84)", used_by: [frozen_feat_mini, frn_mini_seed*, snatcher_f_mini]}
+  whole84: {transform: "whole image, PIL LANCZOS resize to 84x84", used_by: [tane_pre_mini, dnpg_mini_seed*]}
+prepared_sha256:
+  eval84_train: a5896a9761d38ed1477f4a7cf6e499321f42075a07bd2f3dfd7239ad18e99f62
+  eval84_val: 30b5528acecb6b00be15ecb042ee249f21bc2c52de0995d0cc625654e33410a8
+  eval84_test: b78c04affa10e404879ac139d8c57ddfb7a72e8b25de9aa2b07b9eaceddb4472
+  whole84_train: 68909ca39c2de0d6ef69eba14835daa441d57315aec94feed49626cf6356f86b
+  whole84_val: dd3523d65dd96bac2f14df3e5011cc98bd41f7a3a5d5ff748c117a786e80926c
+  whole84_test: 0d1effc3353caaf24bbb5ed8aea59cdaff5a003cdb8e9810d7c6612fe3e86e79
+manifests: [valA_fsor_5way_1shot, valA_fsor_5way_5shot, valB_fsor_5way_1shot, valB_fsor_5way_5shot, test_fsor_5way_1shot, test_fsor_5way_5shot]
+closed_manifests_frn_selection: [valA_5way_1shot, valA_5way_5shot]

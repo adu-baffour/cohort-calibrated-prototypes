@@ -1,0 +1,873 @@
+{
+ "chosen": {
+  "V1 QW": "V1-QW/lambda=1.0/beta=0.5",
+  "V2 ASK": "V2-ASK",
+  "V3 SHC": "V3-SHC/gamma=0.25",
+  "V4 FW": {
+   "SnaTCHer-F mini": "V4-FW/mu=4",
+   "DNPG mini": "V4-FW/mu=1"
+  }
+ },
+ "candidate_from_valB": "V1 QW",
+ "cells_valC": {
+  "frozen FEAT mini|1": {
+   "REF": {
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 75.89505777777778,
+      "auroc_ci95": 0.5492108730213402,
+      "acc": 70.10533493459225,
+      "acc_ci95": 0.6796262811694764,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.1619822222222224,
+     "ci95": 0.11340752669726555,
+     "wilcoxon_p": 0.010646940177276252,
+     "frac_gain": 0.524,
+     "frac_tie": 0.003,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 76.05704000000001,
+      "auroc_ci95": 0.5502873354073433,
+      "acc": 70.10533493459225,
+      "acc_ci95": 0.6796262811694764,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": 0.15409777777777783,
+     "ci95": 0.10324605732839816,
+     "wilcoxon_p": 0.008064214768690157,
+     "frac_gain": 0.519,
+     "frac_tie": 0.006,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.2866666197776766,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 76.04915555555557,
+      "auroc_ci95": 0.5523517591218214,
+      "acc": 70.39200155436993,
+      "acc_ci95": 0.666751258114913,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": 0.568408888888889,
+     "ci95": 0.054074157729790163,
+     "wilcoxon_p": 2.146898283112259e-74,
+     "frac_gain": 0.767,
+     "frac_tie": 0.008,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.463999935984603,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 76.46346666666668,
+      "auroc_ci95": 0.5547484835470996,
+      "acc": 70.56933487057685,
+      "acc_ci95": 0.6901559214372969,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "frozen FEAT mini|5": {
+   "REF": {
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 85.50256888888889,
+      "auroc_ci95": 0.3634769263618611,
+      "acc": 85.69600212574005,
+      "acc_ci95": 0.40450160487452497,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.9040444444444442,
+     "ci95": 0.09143108850569424,
+     "wilcoxon_p": 5.332034527516796e-65,
+     "frac_gain": 0.737,
+     "frac_tie": 0.001,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 86.40661333333334,
+      "auroc_ci95": 0.3420942299812341,
+      "acc": 85.69600212574005,
+      "acc_ci95": 0.40450160487452497,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -1.1835466666666667,
+     "ci95": 0.06157888030182701,
+     "wilcoxon_p": 2.6659729446290118e-148,
+     "frac_gain": 0.084,
+     "frac_tie": 0.005,
+     "n_episodes": 1000
+    },
+    "acc_change": -0.2106667041778536,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 84.31902222222222,
+      "auroc_ci95": 0.38472846667048494,
+      "acc": 85.4853354215622,
+      "acc_ci95": 0.4070177984202917,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": 0.38196444444444444,
+     "ci95": 0.048215407952426514,
+     "wilcoxon_p": 5.603839057207105e-55,
+     "frac_gain": 0.709,
+     "frac_tie": 0.009,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.019999915361410103,
+    "per_host": {
+     "frozen_feat_mini": {
+      "auroc": 85.88453333333332,
+      "auroc_ci95": 0.3664829630804984,
+      "acc": 85.71600204110146,
+      "acc_ci95": 0.4081875514323542,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "frozen FEAT tiered|1": {
+   "REF": {
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 70.29865777777778,
+      "auroc_ci95": 0.6310887602322817,
+      "acc": 65.26933465898037,
+      "acc_ci95": 0.7013073555236377,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": -0.03495999999999988,
+     "ci95": 0.08530652746446798,
+     "wilcoxon_p": 0.3637198469155086,
+     "frac_gain": 0.484,
+     "frac_tie": 0.003,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 70.26369777777778,
+      "auroc_ci95": 0.6343224927517038,
+      "acc": 65.26933465898037,
+      "acc_ci95": 0.7013073555236377,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -0.09382222222222204,
+     "ci95": 0.06006315337167155,
+     "wilcoxon_p": 0.0007404785218536305,
+     "frac_gain": 0.453,
+     "frac_tie": 0.007,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.058666801452631034,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 70.20483555555556,
+      "auroc_ci95": 0.6371841330813133,
+      "acc": 65.328001460433,
+      "acc_ci95": 0.7000611612952765,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": 0.03516444444444443,
+     "ci95": 0.05479217721557257,
+     "wilcoxon_p": 0.059487849780961666,
+     "frac_gain": 0.536,
+     "frac_tie": 0.01,
+     "n_episodes": 1000
+    },
+    "acc_change": -0.0639999896287975,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 70.33382222222222,
+      "auroc_ci95": 0.6335348397814796,
+      "acc": 65.20533466935157,
+      "acc_ci95": 0.7069189175397061,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "frozen FEAT tiered|5": {
+   "REF": {
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 78.25077333333333,
+      "auroc_ci95": 0.5349608436373743,
+      "acc": 81.9986686050892,
+      "acc_ci95": 0.4897473250186645,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.22868444444444458,
+     "ci95": 0.08209346021801857,
+     "wilcoxon_p": 3.38867312405953e-07,
+     "frac_gain": 0.561,
+     "frac_tie": 0.004,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 78.47945777777777,
+      "auroc_ci95": 0.5459645882944519,
+      "acc": 81.9986686050892,
+      "acc_ci95": 0.4897473250186645,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -1.100817777777778,
+     "ci95": 0.08646733846992116,
+     "wilcoxon_p": 7.554892951928484e-99,
+     "frac_gain": 0.18,
+     "frac_tie": 0.003,
+     "n_episodes": 1000
+    },
+    "acc_change": -0.12266665101051899,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 77.14995555555555,
+      "auroc_ci95": 0.5415986362180149,
+      "acc": 81.87600195407867,
+      "acc_ci95": 0.4829462196683195,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": -0.04415111111111103,
+     "ci95": 0.053099686318868966,
+     "wilcoxon_p": 0.05628790534589134,
+     "frac_gain": 0.46,
+     "frac_tie": 0.009,
+     "n_episodes": 1000
+    },
+    "acc_change": -0.38133325576782795,
+    "per_host": {
+     "frozen_feat_tiered": {
+      "auroc": 78.20662222222221,
+      "auroc_ci95": 0.5273043823632169,
+      "acc": 81.61733534932137,
+      "acc_ci95": 0.49742404618255576,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "SnaTCHer-F mini|1": {
+   "REF": {
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 76.5594488888889,
+      "auroc_ci95": 0.5715364958084537,
+      "acc": 71.07333521270752,
+      "acc_ci95": 0.6648351551258719,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.35123555555555563,
+     "ci95": 0.05983157353164634,
+     "wilcoxon_p": 9.00363340943174e-28,
+     "frac_gain": 0.618,
+     "frac_tie": 0.013,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 76.91068444444444,
+      "auroc_ci95": 0.5664057347095718,
+      "acc": 71.07333521270752,
+      "acc_ci95": 0.6648351551258719,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": 0.030595555555555626,
+     "ci95": 0.05264576020722982,
+     "wilcoxon_p": 0.41639675255014286,
+     "frac_gain": 0.507,
+     "frac_tie": 0.007,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 76.59004444444444,
+      "auroc_ci95": 0.5744720083198319,
+      "acc": 71.07333521270752,
+      "acc_ci95": 0.6648351551258719,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": 0.10394666666666671,
+     "ci95": 0.026428944704807462,
+     "wilcoxon_p": 1.821088051765039e-15,
+     "frac_gain": 0.598,
+     "frac_tie": 0.017,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 76.66339555555555,
+      "auroc_ci95": 0.5756821492221537,
+      "acc": 71.07333521270752,
+      "acc_ci95": 0.6648351551258719,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V4 FW": {
+    "variant": "V4-FW/mu=4",
+    "paired_auroc_vs_REF": {
+     "mean": 0.130488888888889,
+     "ci95": 0.09144559430153153,
+     "wilcoxon_p": 0.005396586349832954,
+     "frac_gain": 0.528,
+     "frac_tie": 0.004,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 76.68993777777779,
+      "auroc_ci95": 0.5646784499542187,
+      "acc": 71.07333521270752,
+      "acc_ci95": 0.6648351551258719,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "SnaTCHer-F mini|5": {
+   "REF": {
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 86.52789333333334,
+      "auroc_ci95": 0.3730828696779846,
+      "acc": 85.60133513259888,
+      "acc_ci95": 0.40543406383886593,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.6708622222222222,
+     "ci95": 0.041827011954027014,
+     "wilcoxon_p": 1.0505501000776944e-130,
+     "frac_gain": 0.872,
+     "frac_tie": 0.007,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 87.19875555555556,
+      "auroc_ci95": 0.35274067187172053,
+      "acc": 85.60133513259888,
+      "acc_ci95": 0.40543406383886593,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -0.160533333333333,
+     "ci95": 0.02442938756678315,
+     "wilcoxon_p": 6.066082596301416e-33,
+     "frac_gain": 0.339,
+     "frac_tie": 0.014,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 86.36736,
+      "auroc_ci95": 0.3758115843988944,
+      "acc": 85.60133513259888,
+      "acc_ci95": 0.40543406383886593,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": -0.06565333333333317,
+     "ci95": 0.023034859510510382,
+     "wilcoxon_p": 1.1526960964987073e-05,
+     "frac_gain": 0.447,
+     "frac_tie": 0.025,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 86.46224,
+      "auroc_ci95": 0.37853141580578425,
+      "acc": 85.60133513259888,
+      "acc_ci95": 0.40543406383886593,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V4 FW": {
+    "variant": "V4-FW/mu=4",
+    "paired_auroc_vs_REF": {
+     "mean": 0.1687644444444447,
+     "ci95": 0.0698184590316224,
+     "wilcoxon_p": 0.000615623538158796,
+     "frac_gain": 0.525,
+     "frac_tie": 0.007,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "snatcher_f_mini": {
+      "auroc": 86.69665777777779,
+      "auroc_ci95": 0.3534322945951651,
+      "acc": 85.60133513259888,
+      "acc_ci95": 0.40543406383886593,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "DNPG mini|1": {
+   "REF": {
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 77.15187555555555,
+      "auroc_ci95": 0.5495773987921957,
+      "acc": 70.692,
+      "acc_ci95": 0.6749822592333982,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 77.06979555555556,
+      "auroc_ci95": 0.5526759825187916,
+      "acc": 70.688,
+      "acc_ci95": 0.6767965439239312,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 77.18181333333332,
+      "auroc_ci95": 0.5455402609029405,
+      "acc": 70.66,
+      "acc_ci95": 0.6767422070938255,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.0060385185185184796,
+     "ci95": 0.07093926565149264,
+     "wilcoxon_p": 0.5110090011908683,
+     "frac_gain": 0.467,
+     "frac_tie": 0.001,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 77.16974222222223,
+      "auroc_ci95": 0.5440732141749834,
+      "acc": 70.692,
+      "acc_ci95": 0.6749822592333982,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 77.09911111111111,
+      "auroc_ci95": 0.5465718485779053,
+      "acc": 70.688,
+      "acc_ci95": 0.6767965439239312,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 77.15274666666667,
+      "auroc_ci95": 0.5410121082109909,
+      "acc": 70.66,
+      "acc_ci95": 0.6767422070938255,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -0.22104296296296302,
+     "ci95": 0.05818883630909063,
+     "wilcoxon_p": 7.898497543737774e-13,
+     "frac_gain": 0.396,
+     "frac_tie": 0.001,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 76.95438222222222,
+      "auroc_ci95": 0.552300413459838,
+      "acc": 70.692,
+      "acc_ci95": 0.6749822592333982,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 76.84636444444443,
+      "auroc_ci95": 0.555454488145885,
+      "acc": 70.688,
+      "acc_ci95": 0.6767965439239312,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 76.93960888888888,
+      "auroc_ci95": 0.5489115477330923,
+      "acc": 70.66,
+      "acc_ci95": 0.6767422070938255,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": 0.039051851851851824,
+     "ci95": 0.025258454202087187,
+     "wilcoxon_p": 1.1052793125565722e-05,
+     "frac_gain": 0.576,
+     "frac_tie": 0.004,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 77.19836444444444,
+      "auroc_ci95": 0.5527158145716309,
+      "acc": 70.692,
+      "acc_ci95": 0.6749822592333982,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 77.10234666666668,
+      "auroc_ci95": 0.5557809968748426,
+      "acc": 70.688,
+      "acc_ci95": 0.6767965439239312,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 77.21992888888889,
+      "auroc_ci95": 0.5487305759170981,
+      "acc": 70.66,
+      "acc_ci95": 0.6767422070938255,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V4 FW": {
+    "variant": "V4-FW/mu=1",
+    "paired_auroc_vs_REF": {
+     "mean": 0.0,
+     "ci95": 0.0,
+     "wilcoxon_p": 1.0,
+     "frac_gain": 0.0,
+     "frac_tie": 1.0,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 77.15187555555555,
+      "auroc_ci95": 0.5495773987921957,
+      "acc": 70.692,
+      "acc_ci95": 0.6749822592333982,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 77.06979555555556,
+      "auroc_ci95": 0.5526759825187916,
+      "acc": 70.688,
+      "acc_ci95": 0.6767965439239312,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 77.18181333333332,
+      "auroc_ci95": 0.5455402609029405,
+      "acc": 70.66,
+      "acc_ci95": 0.6767422070938255,
+      "n_episodes": 1000
+     }
+    }
+   }
+  },
+  "DNPG mini|5": {
+   "REF": {
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 87.45313777777777,
+      "auroc_ci95": 0.34359112463534186,
+      "acc": 85.58933333333333,
+      "acc_ci95": 0.3889842509410603,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 87.38181333333334,
+      "auroc_ci95": 0.3393102539546504,
+      "acc": 85.50266666666667,
+      "acc_ci95": 0.3912577290592765,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 87.45018666666668,
+      "auroc_ci95": 0.34344741546900615,
+      "acc": 85.65333333333332,
+      "acc_ci95": 0.39433113088142335,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V1 QW": {
+    "variant": "V1-QW/lambda=1.0/beta=0.5",
+    "paired_auroc_vs_REF": {
+     "mean": 0.10255407407407395,
+     "ci95": 0.052953065987533875,
+     "wilcoxon_p": 0.011918238922742899,
+     "frac_gain": 0.512,
+     "frac_tie": 0.002,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 87.54906666666666,
+      "auroc_ci95": 0.33139845637323473,
+      "acc": 85.58933333333333,
+      "acc_ci95": 0.3889842509410603,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 87.49994666666667,
+      "auroc_ci95": 0.32755877573104936,
+      "acc": 85.50266666666667,
+      "acc_ci95": 0.3912577290592765,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 87.54378666666666,
+      "auroc_ci95": 0.3317416855827197,
+      "acc": 85.65333333333332,
+      "acc_ci95": 0.39433113088142335,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V2 ASK": {
+    "variant": "V2-ASK",
+    "paired_auroc_vs_REF": {
+     "mean": -0.1725274074074074,
+     "ci95": 0.026237316522804543,
+     "wilcoxon_p": 1.3498396991220844e-35,
+     "frac_gain": 0.336,
+     "frac_tie": 0.005,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 87.28593777777779,
+      "auroc_ci95": 0.348372389910165,
+      "acc": 85.58933333333333,
+      "acc_ci95": 0.3889842509410603,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 87.20842666666667,
+      "auroc_ci95": 0.34410096042288474,
+      "acc": 85.50266666666667,
+      "acc_ci95": 0.3912577290592765,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 87.27319111111112,
+      "auroc_ci95": 0.347966129313172,
+      "acc": 85.65333333333332,
+      "acc_ci95": 0.39433113088142335,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V3 SHC": {
+    "variant": "V3-SHC/gamma=0.25",
+    "paired_auroc_vs_REF": {
+     "mean": -0.061949629629629396,
+     "ci95": 0.021235616840781527,
+     "wilcoxon_p": 2.1342454090651948e-05,
+     "frac_gain": 0.448,
+     "frac_tie": 0.006,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 87.39169777777776,
+      "auroc_ci95": 0.34859450093871014,
+      "acc": 85.58933333333333,
+      "acc_ci95": 0.3889842509410603,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 87.32174222222224,
+      "auroc_ci95": 0.34441669023839844,
+      "acc": 85.50266666666667,
+      "acc_ci95": 0.3912577290592765,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 87.3858488888889,
+      "auroc_ci95": 0.34825953843444074,
+      "acc": 85.65333333333332,
+      "acc_ci95": 0.39433113088142335,
+      "n_episodes": 1000
+     }
+    }
+   },
+   "V4 FW": {
+    "variant": "V4-FW/mu=1",
+    "paired_auroc_vs_REF": {
+     "mean": 0.0,
+     "ci95": 0.0,
+     "wilcoxon_p": 1.0,
+     "frac_gain": 0.0,
+     "frac_tie": 1.0,
+     "n_episodes": 1000
+    },
+    "acc_change": 0.0,
+    "per_host": {
+     "dnpg_mini_seed0": {
+      "auroc": 87.45313777777777,
+      "auroc_ci95": 0.34359112463534186,
+      "acc": 85.58933333333333,
+      "acc_ci95": 0.3889842509410603,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed1": {
+      "auroc": 87.38181333333334,
+      "auroc_ci95": 0.3393102539546504,
+      "acc": 85.50266666666667,
+      "acc_ci95": 0.3912577290592765,
+      "n_episodes": 1000
+     },
+     "dnpg_mini_seed2": {
+      "auroc": 87.45018666666668,
+      "auroc_ci95": 0.34344741546900615,
+      "acc": 85.65333333333332,
+      "acc_ci95": 0.39433113088142335,
+      "n_episodes": 1000
+     }
+    }
+   }
+  }
+ },
+ "gate_G4_valC": {
+  "V1 QW": {
+   "mean_gain": 0.2988051851851852,
+   "min_cell_gain": -0.03495999999999988,
+   "G4": true
+  },
+  "V2 ASK": {
+   "mean_gain": -0.34344962962962955,
+   "min_cell_gain": -1.1835466666666667,
+   "G4": false
+  },
+  "V3 SHC": {
+   "mean_gain": 0.11959777777777784,
+   "min_cell_gain": -0.06565333333333317,
+   "G4": false
+  },
+  "V4 FW": {
+   "mean_gain": 0.07481333333333343,
+   "min_cell_gain": 0.0,
+   "G4": false
+  }
+ },
+ "promoted": "V1 QW",
+ "decision": "V1 QW promoted (pre-registered extension; a test bundle is drafted for approval)",
+ "gpu_minutes": 11.394128402074179,
+ "when": "2026-10-02 13:59:50",
+ "git_head": "5065c05ff93eb9d39079de59ea4d3d4632aefae5"
+}

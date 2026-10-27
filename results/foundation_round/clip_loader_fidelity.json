@@ -1,0 +1,22 @@
+{
+ "plain": {
+  "bitwise_identical": true,
+  "max_abs_diff": 0.0,
+  "min_cosine": 0.9999997615814209,
+  "dim": 512
+ },
+ "flip": {
+  "bitwise_identical": true,
+  "max_abs_diff": 0.0,
+  "min_cosine": 0.9999998211860657,
+  "dim": 512
+ },
+ "images": "the first 500 mini base images (eval84)",
+ "clip_package": {
+  "ftfy": "6.3.1",
+  "regex": "2026.9.29",
+  "clip_commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6"
+ },
+ "when": "2026-10-06 10:56:32",
+ "git_head": "4bc271b61ee33b79c47a449e1107acdf36371530"
+}

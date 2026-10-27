@@ -1,0 +1,79 @@
+{
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "when": "2026-09-29 14:52:54",
+ "cohort": {
+  "n_base": 38400,
+  "embed_seconds_both_views": 7.725958900060505,
+  "ccpA_bank_MB_fp16": 46.875,
+  "ccpA_bank_MB_fp32": 93.75,
+  "ccpS_stats_MB_fp32": 1.56494140625,
+  "dnpg_embed_seconds_both_views": 7.691535799996927
+ },
+ "dnpg_params": {
+  "total": 23473404,
+  "backbone_finetuned": 12424320,
+  "new_modules_trainable": 11008123,
+  "phase2_centres": 204800
+ },
+ "per_episode": {
+  "1shot": {
+   "backbone": {
+    "ms_per_episode": 30.71955499413889,
+    "peak_extra_MB": 416.6875
+   },
+   "COSF": {
+    "ms_per_episode": 0.09080999356228858,
+    "peak_extra_MB": 0.00537109375
+   },
+   "CCP-A": {
+    "ms_per_episode": 0.7510360039304942,
+    "peak_extra_MB": 24.21630859375
+   },
+   "CCP-S": {
+    "ms_per_episode": 0.4906574951019138,
+    "peak_extra_MB": 0.37109375
+   },
+   "DNPG (own score, incl. its forward with 5x support augmentation)": {
+    "ms_per_episode": 67.15527250838932,
+    "peak_extra_MB": 1066.71484375
+   },
+   "CCP-A on DNPG features (extra over DNPG: flip-view forward + CCP-A)": {
+    "ms_per_episode": 31.535620997892693,
+    "peak_extra_MB": 450.4677734375
+   }
+  },
+  "5shot": {
+   "backbone": {
+    "ms_per_episode": 34.57118749676738,
+    "peak_extra_MB": 471.0810546875
+   },
+   "COSF": {
+    "ms_per_episode": 0.08146549924276769,
+    "peak_extra_MB": 0.00537109375
+   },
+   "CCP-A": {
+    "ms_per_episode": 0.8000985049875453,
+    "peak_extra_MB": 24.21630859375
+   },
+   "CCP-S": {
+    "ms_per_episode": 0.4123195051215589,
+    "peak_extra_MB": 0.37109375
+   },
+   "DNPG (own score, incl. its forward with 5x support augmentation)": {
+    "ms_per_episode": 127.71768899692687,
+    "peak_extra_MB": 2134.6044921875
+   },
+   "CCP-A on DNPG features (extra over DNPG: flip-view forward + CCP-A)": {
+    "ms_per_episode": 35.43233999982476,
+    "peak_extra_MB": 508.11767578125
+   }
+  }
+ },
+ "training_hours": {
+  "mini_per_seed_measured": {
+   "seed1": 4.474913362330861,
+   "seed2": 4.461998019019762
+  },
+  "tiered_seed0_measured": 12.111965459386507
+ }
+}

@@ -1,0 +1,38 @@
+# SnaTCHer-F on FEAT's released meta-trained ResNet-12 (tiered; README-linked feat-K-shot.pth, not feat-1-shot-improved.pth). Validation only (tiered NO-GO).
+name: snatcher_f_tiered
+kind: snatcher_f
+dataset: tiered
+view: bgr84
+channel_order: BGR
+feature_dtype: fp16   # stored precision of the raw GAP pair in the registered test path
+channels_last: false
+checkpoints:
+  1shot:
+    path: "third_party/feat_meta/tiered/feat-1-shot.pth"
+    sha256: "46e71b689d004b6e13fd7d00277d30acd0d79e227e9b288b64cf73cc04143263"
+    source: "https://drive.google.com/file/d/1M93jdOjAn8IihICPKJg8Mb4B-eYDSZfE (FEAT README model zoo)"
+    license: "link only"
+  5shot:
+    path: "third_party/feat_meta/tiered/feat-5-shot.pth"
+    sha256: "777cfb7550063b811a5da3753c403faccefd818f9c10d1873e6de08579e2f334"
+    source: "https://drive.google.com/file/d/1nM4HGGZmMpC57cpe7cqY3WdpL8WlyRay (FEAT README model zoo)"
+    license: "link only"
+code: {repo: "https://github.com/MinkiJ/SnaTCHer", commit: 335c42469f0a7ad72c5c3480c8effc8c293823e0}
+bank:
+  1shot:
+    file: banks/tiered/snatcher_f_tiered_1shot.npz
+    sha256: 98d9074ac5bb02e59e4c8c203d196b7a0a4a72818a7dfacf87bbed6c6c09ac57
+    embed: subset_only
+  5shot:
+    file: banks/tiered/snatcher_f_tiered_5shot.npz
+    sha256: e327d4d47882165926882811a0a016767b279c7ff33211667effa4d6ac2a2ae4
+    embed: subset_only
+fusion:
+  own_score: S
+  definition: "w = pooled std(S) / pooled std(CCP-A), w2 = pooled std(S) / pooled std(COSF), ddof 0 over all 1,000 x 150 tvA query scores; frozen before any tvB episode was scored"
+  provenance: "research/status/snatcher_weights.json"
+  frozen_weights:
+    1shot: {w: 42.77820978159362, w2: 41.58498462218207}
+    5shot: {w: 48.486585837157456, w2: 47.42432602142616}
+rows: [S, H_fix, K_fix, CCP-A, COSF, Dist]
+recorded_path: scripts/snatcher.py score --dataset tiered (validation only)

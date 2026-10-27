@@ -1,0 +1,103 @@
+# mini-ImageNet class id (global label order), WordNet id, ImageNet-1k class name (first lemma used in Figure 3)
+# Source: ImageNet-1k synset list and class names (text only; no images). Used only for figure labels.
+label	wnid	names
+0	n01532829	house finch, linnet, Carpodacus mexicanus
+1	n01558993	robin, American robin, Turdus migratorius
+2	n01704323	triceratops
+3	n01749939	green mamba
+4	n01770081	harvestman, daddy longlegs, Phalangium opilio
+5	n01843383	toucan
+6	n01910747	jellyfish
+7	n02074367	dugong, Dugong dugon
+8	n02089867	Walker hound, Walker foxhound
+9	n02091831	Saluki, gazelle hound
+10	n02101006	Gordon setter
+11	n02105505	komondor
+12	n02108089	boxer
+13	n02108551	Tibetan mastiff
+14	n02108915	French bulldog
+15	n02111277	Newfoundland, Newfoundland dog
+16	n02113712	miniature poodle
+17	n02120079	Arctic fox, white fox, Alopex lagopus
+18	n02165456	ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle
+19	n02457408	three-toed sloth, ai, Bradypus tridactylus
+20	n02606052	rock beauty, Holocanthus tricolor
+21	n02687172	aircraft carrier, carrier, flattop, attack aircraft carrier
+22	n02747177	ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin
+23	n02795169	barrel, cask
+24	n02823428	beer bottle
+25	n02966193	carousel, carrousel, merry-go-round, roundabout, whirligig
+26	n03017168	chime, bell, gong
+27	n03047690	clog, geta, patten, sabot
+28	n03062245	cocktail shaker
+29	n03207743	dishrag, dishcloth
+30	n03220513	dome
+31	n03337140	file, file cabinet, filing cabinet
+32	n03347037	fire screen, fireguard
+33	n03400231	frying pan, frypan, skillet
+34	n03476684	hair slide
+35	n03527444	holster
+36	n03676483	lipstick, lip rouge
+37	n03838899	oboe, hautboy, hautbois
+38	n03854065	organ, pipe organ
+39	n03888605	parallel bars, bars
+40	n03908618	pencil box, pencil case
+41	n03924679	photocopier
+42	n03998194	prayer rug, prayer mat
+43	n04067472	reel
+44	n04243546	slot, one-armed bandit
+45	n04251144	snorkel
+46	n04258138	solar dish, solar collector, solar furnace
+47	n04275548	spider web, spider's web
+48	n04296562	stage
+49	n04389033	tank, army tank, armored combat vehicle, armoured combat vehicle
+50	n04435653	tile roof
+51	n04443257	tobacco shop, tobacconist shop, tobacconist
+52	n04509417	unicycle, monocycle
+53	n04515003	upright, upright piano
+54	n04596742	wok
+55	n04604644	worm fence, snake fence, snake-rail fence, Virginia fence
+56	n04612504	yawl
+57	n06794110	street sign
+58	n07584110	consomme
+59	n07697537	hotdog, hot dog, red hot
+60	n07747607	orange
+61	n09246464	cliff, drop, drop-off
+62	n13054560	bolete
+63	n13133613	ear, spike, capitulum
+64	n01855672	goose
+65	n02091244	Ibizan hound, Ibizan Podenco
+66	n02114548	white wolf, Arctic wolf, Canis lupus tundrarum
+67	n02138441	meerkat, mierkat
+68	n02174001	rhinoceros beetle
+69	n02950826	cannon
+70	n02971356	carton
+71	n02981792	catamaran
+72	n03075370	combination lock
+73	n03417042	garbage truck, dustcart
+74	n03535780	horizontal bar, high bar
+75	n03584254	iPod
+76	n03770439	miniskirt, mini
+77	n03773504	missile
+78	n03980874	poncho
+79	n09256479	coral reef
+80	n01930112	nematode, nematode worm, roundworm
+81	n01981276	king crab, Alaska crab, Alaskan king crab, Alaska king crab, Paralithodes camtschatica
+82	n02099601	golden retriever
+83	n02110063	malamute, malemute, Alaskan malamute
+84	n02110341	dalmatian, coach dog, carriage dog
+85	n02116738	African hunting dog, hyena dog, Cape hunting dog, Lycaon pictus
+86	n02129165	lion, king of beasts, Panthera leo
+87	n02219486	ant, emmet, pismire
+88	n02443484	black-footed ferret, ferret, Mustela nigripes
+89	n02871525	bookshop, bookstore, bookstall
+90	n03127925	crate
+91	n03146219	cuirass
+92	n03272010	electric guitar
+93	n03544143	hourglass
+94	n03775546	mixing bowl
+95	n04146614	school bus
+96	n04149813	scoreboard
+97	n04418357	theater curtain, theatre curtain
+98	n04522168	vase
+99	n07613480	trifle

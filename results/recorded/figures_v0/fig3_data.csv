@@ -1,0 +1,6 @@
+row,rule,valB_episode,query_in_episode,unknown,query_global_index,support_global_index,raw_max_cos,m_K,pct_COSF,pct_CCPA,nn_base_global_indices,nn_cosines,class_names_query_support_nn1-5
+1,"unknown, largest increase",375,99,1,39461,40001,0.6777,0.7857,36.2,77.2,5543 5749 5688 5913 5490,0.9511 0.9487 0.9452 0.9442 0.9423,Ibizan hound | white wolf | Saluki | Saluki | Saluki | Saluki | Saluki
+2,"unknown, largest increase",156,103,1,40016,39356,0.6826,0.7943,35.6,75.8,10212 10660 10342 10798 10646,0.9473 0.9375 0.9359 0.9354 0.9216,white wolf | Ibizan hound | Arctic fox | Arctic fox | Arctic fox | Arctic fox | Arctic fox
+3,"unknown, largest increase",385,79,1,39284,39852,0.6667,0.7862,44.3,83.9,5560 5511 5554 5918 7597,0.9133 0.9096 0.9017 0.9012 0.8915,Ibizan hound | white wolf | Saluki | Saluki | Saluki | Saluki | boxer
+4,"known, largest decrease",258,9,0,47854,47443,0.6215,0.5787,77.9,14.8,36751 11546 12120 10885 35247,0.7005 0.6996 0.6739 0.6729 0.6719,coral reef | coral reef | cliff | three-toed sloth | rock beauty | ladybug | consomme
+5,"known, largest increase (failure)",459,61,0,40028,40136,0.7145,0.7998,18.1,61.7,10630 10236 10682 10213 10646,0.9456 0.9396 0.9349 0.9343 0.9333,white wolf | white wolf | Arctic fox | Arctic fox | Arctic fox | Arctic fox | Arctic fox

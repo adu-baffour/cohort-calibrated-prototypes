@@ -1,0 +1,18 @@
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.jpeg binary
+*.svg text eol=lf
+# verbatim copies (byte-identical to their sources; never normalized; see results/PROVENANCE.md)
+results/recorded/** -text
+results/baselines/** -text
+results/variants/** -text
+results/final_round/** -text
+results/foundation_round/** -text
+results/derived/** -text
+bundles/** -text
+manifests/** -text
+docs/preregistration/** -text
+docs/prereg_variants.md -text
+figures/src/** -text
+third_party/fonts/** -text

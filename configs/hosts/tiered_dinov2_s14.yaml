@@ -1,0 +1,21 @@
+# Foundation round (docs/preregistration/foundation_round.md): DINOv2 ViT-S/14 (no registers), final-norm CLS token, 384-d; frozen, image encoder only (no text, no class names).
+# Role: size ladder. Dataset tiered, stored view bgr84, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py).
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: tiered_dinov2_s14
+kind: dinov2_frozen
+arch: vits14
+dataset: tiered
+view: bgr84
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/dinov2/dinov2_vits14_pretrain.pth"   # under the CCP_CKPT third-party root
+  sha256: b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9
+  source: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth"
+bank:
+  file: banks/foundation/tiered_dinov2_s14.npz
+  sha256: d2ee36e3a5197afe842b7cd7bafc822cc7ac66ad5b371beea8bc1eb764a4bb1e
+  embed: subset_only
+  base_images: "the registered RandomState(20260926) subset of 38,400 base images (stored BGR, read as RGB)"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

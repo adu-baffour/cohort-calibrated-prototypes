@@ -1,0 +1,98 @@
+{
+ "banks": {
+  "mini_clip_b16": {
+   "file": "banks/foundation/mini_clip_b16.npz",
+   "sha256": "f1d5a301f2ff58d82ef879b6d58a62dc91e13244179ac77a43efb6c366b70a0f",
+   "seconds": 45.804868936538696
+  },
+  "tiered_clip_b16": {
+   "file": "banks/foundation/tiered_clip_b16.npz",
+   "sha256": "48e656e3d0c5bbb24d02d32f54da0b2fae9734a311eb86dfb2e992f2ae82be02",
+   "seconds": 71.4369626045227
+  },
+  "cifarfs_clip_b16": {
+   "file": "banks/foundation/cifarfs_clip_b16.npz",
+   "sha256": "bd34fc64a14bfd23caa460ac9eb5f2139828e2f32dcf0d7871cc81fc6054b8ef",
+   "seconds": 42.99407339096069
+  },
+  "cub_clip_b16": {
+   "file": "banks/foundation/cub_clip_b16.npz",
+   "sha256": "5df6df8d4fd63ea2fecaec225263154ce97768c94481f25f08a2d53c8480b89e",
+   "seconds": 8.03618049621582
+  },
+  "mini_dinov2_s14": {
+   "file": "banks/foundation/mini_dinov2_s14.npz",
+   "sha256": "5745c90fb1853d3da1f46efe1e950b22ced90945dff706cd3e9b7f6e0553ef17",
+   "seconds": 17.42758560180664
+  },
+  "tiered_dinov2_s14": {
+   "file": "banks/foundation/tiered_dinov2_s14.npz",
+   "sha256": "d2ee36e3a5197afe842b7cd7bafc822cc7ac66ad5b371beea8bc1eb764a4bb1e",
+   "seconds": 27.345308542251587
+  },
+  "cifarfs_dinov2_s14": {
+   "file": "banks/foundation/cifarfs_dinov2_s14.npz",
+   "sha256": "96d3592b0ffae1fea2750d1aa0f5cb812f7d241eded3f09b79b01feb0e26760c",
+   "seconds": 16.967477321624756
+  },
+  "cub_dinov2_s14": {
+   "file": "banks/foundation/cub_dinov2_s14.npz",
+   "sha256": "2e3f71eecbef45a705ea635bb3bc0e6fc7b746c5cb4fdb177364c09ee45e6447",
+   "seconds": 3.0040841102600098
+  },
+  "mini_dinov2_b14": {
+   "file": "banks/foundation/mini_dinov2_b14.npz",
+   "sha256": "0b083f036036bf359a21d7a69699582840e619fd02089d3541198e91e8c29c73",
+   "seconds": 43.607447147369385
+  },
+  "tiered_dinov2_b14": {
+   "file": "banks/foundation/tiered_dinov2_b14.npz",
+   "sha256": "6f24b10e9599530926f06e6a6860fa19962a8ac218f35f33d2d0527e7f8a1d95",
+   "seconds": 53.76211476325989
+  },
+  "cifarfs_dinov2_b14": {
+   "file": "banks/foundation/cifarfs_dinov2_b14.npz",
+   "sha256": "1c7b995ed21fa0b44835d4ce0bffecb79b648367c9596e99428671a048e9b190",
+   "seconds": 43.49801540374756
+  },
+  "cub_dinov2_b14": {
+   "file": "banks/foundation/cub_dinov2_b14.npz",
+   "sha256": "588b7f412e8d562b687292df4d826a395c1e1a10d7c78c761c7d58f48db93277",
+   "seconds": 7.9182069301605225
+  },
+  "mini_dinov2_l14": {
+   "file": "banks/foundation/mini_dinov2_l14.npz",
+   "sha256": "36a08d78e1b7e5f57cd72789854ef54a13f43137cd442f4b29f8b2a764a2277d",
+   "seconds": 129.59486079216003
+  },
+  "tiered_dinov2_l14": {
+   "file": "banks/foundation/tiered_dinov2_l14.npz",
+   "sha256": "8cc74be614dda05ce8084c12f828f3e0a2509c25d9c98de69b13df9b32829944",
+   "seconds": 139.4015076160431
+  },
+  "cifarfs_dinov2_l14": {
+   "file": "banks/foundation/cifarfs_dinov2_l14.npz",
+   "sha256": "a23ea9d178ccb05bbe2ee8de5dcab6d31d2fe2b2ea0b5fed2fb939cb9de9b100",
+   "seconds": 131.00561809539795
+  },
+  "cub_dinov2_l14": {
+   "file": "banks/foundation/cub_dinov2_l14.npz",
+   "sha256": "a2c3d563baf5b5cd01e89f800b0ab6b79db4e259c5ef0659b5f5aca854f68ec7",
+   "seconds": 23.59911561012268
+  },
+  "cub_clip_b16_eval224": {
+   "file": "banks/foundation/cub_clip_b16_eval224.npz",
+   "sha256": "8d80438fa47fcc86d848ae9c2f645a2b49b2ede5eec18e40fdfe5d910fa10d18",
+   "seconds": 8.450412273406982
+  },
+  "cub_dinov2_b14_eval224": {
+   "file": "banks/foundation/cub_dinov2_b14_eval224.npz",
+   "sha256": "2361911de06713763ca00dae392258d8f100d286fb87197bfe368c69b9f3711e",
+   "seconds": 8.22259521484375
+  }
+ },
+ "rebuild_check_cub_dinov2_s14_byte_identical": true,
+ "gpu_minutes": 13.751858254273733,
+ "when": "2026-10-06 10:35:10",
+ "git_head": "c25fe91b9756a9b90d2c014ae4392a1ec71971ce"
+}

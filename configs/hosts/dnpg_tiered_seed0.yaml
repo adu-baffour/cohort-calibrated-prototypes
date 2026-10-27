@@ -1,0 +1,53 @@
+# DNPG trained by us on tieredImageNet from the released TANE tiered backbone, seed 0 only (validation only; NO-GO).
+name: dnpg_tiered_seed0
+kind: dnpg
+dataset: tiered
+view: bgr84
+channel_order: BGR
+feature_dtype: fp32   # stored precision of the raw GAP pair in the registered test path
+channels_last: false
+code: {repo: "https://github.com/gary23ai/DNPG", commit: 38b8fd13656ae66c87488415223a8df24ad67c80, patch: third_party/patches/dnpg.patch}
+backbone_init: {path: third_party/tane/tieredImageNet_pre.pth, sha256: 93b39fc2ed47fff92bdf520a8c846be64375082c38d31effee94826eca7f4572, flag: "stored epoch 81, consistent with test-selected max_meta"}
+training_deviation: "5-shot meta-learning with gradient accumulation: micro-batch 1 episode, 2 micro-batches per optimiser step (BatchNorm on micro-batches)"
+checkpoints:
+  phase2:
+    path: "dnpg/tiered/seed0/phase2_tiered_last.pth"
+    sha256: "9e8978a012cbdd2adf199cc05522107567ababa0286eed523a18c9d07d7d2f7d"
+    source: "release asset (ours)"
+  max_acc_1shot:
+    path: "dnpg/tiered/seed0/max_acc_1shot.pth"
+    sha256: "b8631ca0b31e85f4de8c6413c8356c6e73cf913fdac83d4b9a7f8ad3f3281bbe"
+    source: "release asset (ours)"
+  last_1shot:
+    path: "dnpg/tiered/seed0/last_1shot.pth"
+    sha256: "bdb2caa0038deba8435c7a7e9c5ee59798d263444b5e2d442074ed213c7ce19a"
+    source: "release asset (ours)"
+  max_acc_5shot:
+    path: "dnpg/tiered/seed0/max_acc_5shot.pth"
+    sha256: "049a1d6732be9c7a0bce98c6095a709db3731d033d6064ddd33234423956daae"
+    source: "release asset (ours)"
+  last_5shot:
+    path: "dnpg/tiered/seed0/last_5shot.pth"
+    sha256: "36719ebe148bab4e32f7472ba877961ca19ed2f488862d9d933c434c9f904b56"
+    source: "release asset (ours)"
+bank:
+  1shot:
+    file: banks/tiered/dnpg_tiered_seed0_1shot.npz
+    sha256: 75048210cf352155357ea91c07d175149cd9abf261ffac2d91c760b772d7a30b
+    embed: subset_only
+  5shot:
+    file: banks/tiered/dnpg_tiered_seed0_5shot.npz
+    sha256: 13654ebf60ffa531b8d1f4e0af36705ed1f00ba30e1e3609d71991484a487a15
+    embed: subset_only
+fusion:
+  own_score: D
+  definition: "as mini, over all 1,000 x 150 tvA query scores; frozen before any tvB episode was scored"
+  provenance: research/status/dnpg_tiered_weights.json
+  frozen_weights:
+    1shot: {w: 2.8520205375416023, w2: 2.699275357522913}
+    5shot: {w: 3.0349572971501297, w2: 2.9511368631070645}
+  frozen_weights_last:
+    1shot: {w: 2.9211610989952823, w2: 2.773124317209324}
+    5shot: {w: 3.016579466289512, w2: 2.936595356744517}
+rows: [D, H_fix, K_fix, H, K, CCP-A, COSF]
+recorded_path: scripts/dnpg_tiered_eval.py score --seed 0 (validation only)

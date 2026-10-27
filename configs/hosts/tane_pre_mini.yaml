@@ -1,0 +1,21 @@
+# Released TANE/DNPG pre-trained ResNet-12 (mini). FLAG: stored epoch 66 is consistent with test-split selection by the original authors.
+name: tane_pre_mini
+kind: tane_pre
+dataset: mini
+view: whole84
+channel_order: RGB
+feature_dtype: fp32   # stored precision of the raw GAP pair in the registered test path
+channels_last: true
+checkpoint:
+  path: "third_party/tane/miniImageNet_pre.pth"
+  sha256: "2bd34c4594b77faa3710bca3f363f54219754951e24bc353be0c1b41f3d22bbb"
+  source: "https://drive.google.com/drive/folders/1mj8j5ZChRFLcYMBWEsBBhst8uQTOz_WJ (file id 1klEHIv4hkxxJ2cQ9EZm3yu8B_-XUh5eU)"
+  license: "link only"
+  stored_epoch: 66
+test_selection_flag: true
+bank:
+  file: banks/mini/tane_pre_mini.npz
+  sha256: 12d2c201b724f84770bedf3f097e6640163ea5d587f75dfa6a000991c47b555e
+  embed: full_split
+scores: [COS, COSF, CCP-A, CCP-S]
+recorded_path: research/fsor/fsor_final.py run_mini (MINI bundle part)

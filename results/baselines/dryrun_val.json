@@ -1,0 +1,11 @@
+{
+ "token_at_dry_run": "ae33c73215ca4233",
+ "max_abs_diff_vs_validation": {
+  "auroc": 0.0,
+  "acc": 0.0
+ },
+ "tolerance": 0.0001,
+ "pass": true,
+ "gpu_minutes": 22.300237290064494,
+ "when": "2026-09-30 16:32:01"
+}

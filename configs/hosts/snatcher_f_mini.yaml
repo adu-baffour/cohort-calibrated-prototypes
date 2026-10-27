@@ -1,0 +1,38 @@
+# SnaTCHer-F on FEAT's released meta-trained ResNet-12 (mini; README-linked feat-K-shot.pth, not feat-1-shot-improved.pth).
+name: snatcher_f_mini
+kind: snatcher_f
+dataset: mini
+view: eval84
+channel_order: RGB
+feature_dtype: fp16   # stored precision of the raw GAP pair in the registered test path
+channels_last: false
+checkpoints:
+  1shot:
+    path: "third_party/feat_meta/mini/feat-1-shot.pth"
+    sha256: "60b78143149fb891f1b4d187fe24f03fb431d12d4c853752bf7dac5f90460a41"
+    source: "https://drive.google.com/file/d/1ixqw1l9XVxl3lh1m5VXkctw6JssahGbQ (FEAT README model zoo)"
+    license: "link only"
+  5shot:
+    path: "third_party/feat_meta/mini/feat-5-shot.pth"
+    sha256: "ee54213c754b2c25d07bb7b032549140d7be8d4e253f597cfa57a314696191ee"
+    source: "https://drive.google.com/file/d/1tCU52WiK6JBydnALI_gF9nYiFCNvvT1A (FEAT README model zoo)"
+    license: "link only"
+code: {repo: "https://github.com/MinkiJ/SnaTCHer", commit: 335c42469f0a7ad72c5c3480c8effc8c293823e0}
+bank:
+  1shot:
+    file: banks/mini/snatcher_f_mini_1shot.npz
+    sha256: 09121a7ddcc38d4b3ba99a6d3437842de1007c00574276d88bdd93a44defe13c
+    embed: full_split
+  5shot:
+    file: banks/mini/snatcher_f_mini_5shot.npz
+    sha256: 0b849dde23919187033b2d7151e112cdcfb9ab6b9ec82e30983427ef6bb1d7be
+    embed: full_split
+fusion:
+  own_score: S
+  definition: "w = pooled std(S) / pooled std(CCP-A), w2 = pooled std(S) / pooled std(COSF), ddof 0 over all 1,000 x 150 valA query scores; frozen before any valB episode was scored"
+  provenance: "research/status/snatcher_weights.json and research/FINAL_BUNDLE.md yaml-fsor-mini-snatcher"
+  frozen_weights:
+    1shot: {w: 39.18493949698625, w2: 36.495955512391575}
+    5shot: {w: 47.22915457109874, w2: 44.88093755962801}
+rows: [S, H_fix, K_fix, CCP-A, COSF, Dist]
+recorded_path: research/fsor/fsor_final.py run_mini_snatcher (MINI-SNATCHER bundle part, token 19da50a9bf457980)

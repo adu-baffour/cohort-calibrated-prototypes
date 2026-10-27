@@ -1,0 +1,21 @@
+# Foundation round (docs/preregistration/foundation_round.md): DINOv2 ViT-L/14 (no registers), final-norm CLS token, 1024-d; frozen, image encoder only (no text, no class names).
+# Role: size ladder. Dataset cifarfs, stored view eval32, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py).
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: cifarfs_dinov2_l14
+kind: dinov2_frozen
+arch: vitl14
+dataset: cifarfs
+view: eval32
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/dinov2/dinov2_vitl14_pretrain.pth"   # under the CCP_CKPT third-party root
+  sha256: d5383ea8f4877b2472eb973e0fd72d557c7da5d3611bd527ceeb1d7162cbf428
+  source: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_pretrain.pth"
+bank:
+  file: banks/foundation/cifarfs_dinov2_l14.npz
+  sha256: a23ea9d178ccb05bbe2ee8de5dcab6d31d2fe2b2ea0b5fed2fb939cb9de9b100
+  embed: full_split
+  base_images: "all 38,400 base images"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

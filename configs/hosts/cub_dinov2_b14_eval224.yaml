@@ -1,0 +1,21 @@
+# Foundation round (docs/preregistration/foundation_round.md): DINOv2 ViT-B/14 (no registers), final-norm CLS token, 768-d; frozen, image encoder only (no text, no class names).
+# Role: ANALYSIS (CUB eval224 view: does upsampling change the CCP gain?). Dataset cub, stored view eval224, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py). eval224 is not resampled.
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: cub_dinov2_b14_eval224
+kind: dinov2_frozen
+arch: vitb14
+dataset: cub
+view: eval224
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/dinov2/dinov2_vitb14_pretrain.pth"   # under the CCP_CKPT third-party root
+  sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+  source: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth"
+bank:
+  file: banks/foundation/cub_dinov2_b14_eval224.npz
+  sha256: 2361911de06713763ca00dae392258d8f100d286fb87197bfe368c69b9f3711e
+  embed: full_split
+  base_images: "the 100 training classes, 5,903 images (eval224 view)"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

@@ -1,0 +1,430 @@
+{
+ "seed0_max_acc_1shot": {
+  "ckpt": "research\\dnpg\\meta\\OpenMeta_miniImageNet\\miniImageNet_600_shot_1\\max_acc.pth",
+  "ckpt_sha256": "ebf32fdbe474903584669530a9bb5a46a0ccebd4d59a9abd97ba734211f06d09",
+  "phase2_sha256": "ecb712d1a868d4243556fbcb422fafb8520ced990d08e379389510006c095092",
+  "shot": 1,
+  "ckpt_meta": {
+   "epoch": 25,
+   "acc_auroc": [
+    70.6,
+    76.012
+   ]
+  },
+  "n_aug_support_samples": 5,
+  "label_DNPG_own": "selected on validation classes (optimistic vs training-free rows)",
+  "selection_600": {
+   "acc": 70.449,
+   "acc_ci95": 0.903,
+   "auroc": 76.104,
+   "auroc_ci95": 0.783,
+   "stored_at_selection": [
+    70.6,
+    76.012
+   ]
+  },
+  "DNPG_own": {
+   "A": {
+    "auroc": 76.14048,
+    "auroc_ci95": 0.5890114416231239,
+    "acc": 71.052,
+    "acc_ci95": 0.6591377857998701,
+    "n": 1000
+   },
+   "B": {
+    "auroc": 76.2944,
+    "auroc_ci95": 0.5691770730913398,
+    "acc": 70.37733333333333,
+    "acc_ci95": 0.6533224147354301,
+    "n": 1000
+   }
+  },
+  "gap_vs_dnpg_pool_min_cos": 0.9999210238456726,
+  "cands_A": {
+   "COS": {
+    "auroc": 74.78748444444444,
+    "auroc_ci95": 0.593178786507059,
+    "acc": 70.14133489727973,
+    "acc_ci95": 0.6603452623113752
+   },
+   "COSF": {
+    "auroc": 75.14357333333334,
+    "auroc_ci95": 0.5962680271471708,
+    "acc": 70.64266826808452,
+    "acc_ci95": 0.6622914764540498
+   },
+   "CCP-A": {
+    "auroc": 76.66233777777778,
+    "auroc_ci95": 0.5412710680381906,
+    "acc": 71.02933484613895,
+    "acc_ci95": 0.657864919175147
+   },
+   "CCP-S": {
+    "auroc": 76.59542222222221,
+    "auroc_ci95": 0.5588512724627526,
+    "acc": 71.43333489596844,
+    "acc_ci95": 0.6561100000267261
+   }
+  },
+  "combined_A": {
+   "auroc": 77.25041777777777,
+   "auroc_ci95": 0.5664498480357619,
+   "acc": 71.052,
+   "acc_ci95": 0.6591377857998701,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "cands_B": {
+   "COS": {
+    "auroc": 74.93914666666667,
+    "auroc_ci95": 0.5691515768606429,
+    "acc": 69.41200157999992,
+    "acc_ci95": 0.6578623397559268
+   },
+   "COSF": {
+    "auroc": 75.2632888888889,
+    "auroc_ci95": 0.565225087312672,
+    "acc": 69.92266825139522,
+    "acc_ci95": 0.6556740303827674
+   },
+   "CCP-A": {
+    "auroc": 76.54381333333332,
+    "auroc_ci95": 0.5355743972660727,
+    "acc": 70.36666818857194,
+    "acc_ci95": 0.664200032692302
+   },
+   "CCP-S": {
+    "auroc": 76.68261333333334,
+    "auroc_ci95": 0.5530253771867581,
+    "acc": 70.63200161755086,
+    "acc_ci95": 0.6525139418616621
+   }
+  },
+  "combined_B": {
+   "auroc": 77.29518222222221,
+   "auroc_ci95": 0.5526715203651097,
+   "acc": 70.37733333333333,
+   "acc_ci95": 0.6533224147354301,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "gpu_minutes": 3.4348340153694155,
+  "when": "2026-09-26 13:59:51"
+ },
+ "seed0_last_1shot": {
+  "ckpt": "research\\dnpg\\meta\\OpenMeta_miniImageNet\\miniImageNet_600_shot_1\\40checkpoint.pth",
+  "ckpt_sha256": "c1a962327e303972b1ec7cddff14efe52ac0f4f66a550ead80a97e2a73a92f24",
+  "phase2_sha256": "ecb712d1a868d4243556fbcb422fafb8520ced990d08e379389510006c095092",
+  "shot": 1,
+  "ckpt_meta": {
+   "epoch": 40,
+   "acc_auroc": null
+  },
+  "n_aug_support_samples": 5,
+  "label_DNPG_own": "selected on validation classes (optimistic vs training-free rows)",
+  "selection_600": {
+   "acc": 70.529,
+   "acc_ci95": 0.912,
+   "auroc": 76.337,
+   "auroc_ci95": 0.789,
+   "stored_at_selection": null
+  },
+  "DNPG_own": {
+   "A": {
+    "auroc": 76.32813333333333,
+    "auroc_ci95": 0.5869615320305595,
+    "acc": 71.22133333333335,
+    "acc_ci95": 0.6632357037305315,
+    "n": 1000
+   },
+   "B": {
+    "auroc": 76.45278222222223,
+    "auroc_ci95": 0.5664265786092649,
+    "acc": 70.436,
+    "acc_ci95": 0.6592599961284538,
+    "n": 1000
+   }
+  },
+  "gap_vs_dnpg_pool_min_cos": 0.999927282333374,
+  "cands_A": {
+   "COS": {
+    "auroc": 74.85970666666667,
+    "auroc_ci95": 0.5916735925699506,
+    "acc": 70.20000157803297,
+    "acc_ci95": 0.6688270256905589
+   },
+   "COSF": {
+    "auroc": 75.25672,
+    "auroc_ci95": 0.5956587384855184,
+    "acc": 70.66000151485204,
+    "acc_ci95": 0.6670861761555817
+   },
+   "CCP-A": {
+    "auroc": 76.69709333333333,
+    "auroc_ci95": 0.5412015078864947,
+    "acc": 71.00000155866147,
+    "acc_ci95": 0.6602456428542004
+   },
+   "CCP-S": {
+    "auroc": 76.61342222222223,
+    "auroc_ci95": 0.5585971607207375,
+    "acc": 71.38666820675135,
+    "acc_ci95": 0.6592876166880068
+   }
+  },
+  "combined_A": {
+   "auroc": 77.31649777777777,
+   "auroc_ci95": 0.5645928677143336,
+   "acc": 71.22133333333335,
+   "acc_ci95": 0.6632357037305315,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "cands_B": {
+   "COS": {
+    "auroc": 74.99708444444445,
+    "auroc_ci95": 0.570358405632541,
+    "acc": 69.3613349109888,
+    "acc_ci95": 0.6634293595275261
+   },
+   "COSF": {
+    "auroc": 75.34536888888888,
+    "auroc_ci95": 0.5665230783978714,
+    "acc": 69.98933490812779,
+    "acc_ci95": 0.6623340602420806
+   },
+   "CCP-A": {
+    "auroc": 76.57489777777778,
+    "auroc_ci95": 0.5343706939660279,
+    "acc": 70.34533496499061,
+    "acc_ci95": 0.6662868608437589
+   },
+   "CCP-S": {
+    "auroc": 76.67920000000001,
+    "auroc_ci95": 0.5536006653972624,
+    "acc": 70.66266816854477,
+    "acc_ci95": 0.6595392478779631
+   }
+  },
+  "combined_B": {
+   "auroc": 77.34435555555555,
+   "auroc_ci95": 0.5503976358415376,
+   "acc": 70.436,
+   "acc_ci95": 0.6592599961284538,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "gpu_minutes": 3.452501420180003,
+  "when": "2026-09-26 14:03:21"
+ },
+ "seed0_max_acc_5shot": {
+  "ckpt": "research\\dnpg\\meta\\OpenMeta_miniImageNet\\miniImageNet_600_shot_5\\max_acc.pth",
+  "ckpt_sha256": "7e5e7b2b472bf6cf2bce2397156fddcc92d78286cc04aa578d88ddf2759fa674",
+  "phase2_sha256": "ecb712d1a868d4243556fbcb422fafb8520ced990d08e379389510006c095092",
+  "shot": 5,
+  "ckpt_meta": {
+   "epoch": 34,
+   "acc_auroc": [
+    85.324,
+    86.113
+   ]
+  },
+  "n_aug_support_samples": 5,
+  "label_DNPG_own": "selected on validation classes (optimistic vs training-free rows)",
+  "selection_600": {
+   "acc": 85.244,
+   "acc_ci95": 0.541,
+   "auroc": 86.16,
+   "auroc_ci95": 0.487,
+   "stored_at_selection": [
+    85.324,
+    86.113
+   ]
+  },
+  "DNPG_own": {
+   "A": {
+    "auroc": 86.1903111111111,
+    "auroc_ci95": 0.3718325539753655,
+    "acc": 85.28266666666666,
+    "acc_ci95": 0.40684619759445545,
+    "n": 1000
+   },
+   "B": {
+    "auroc": 85.93905777777778,
+    "auroc_ci95": 0.3710655954907239,
+    "acc": 85.45066666666668,
+    "acc_ci95": 0.3803478049238617,
+    "n": 1000
+   }
+  },
+  "gap_vs_dnpg_pool_min_cos": 0.9999269247055054,
+  "cands_A": {
+   "COS": {
+    "auroc": 83.64054222222222,
+    "auroc_ci95": 0.42380485038967153,
+    "acc": 85.18666877150535,
+    "acc_ci95": 0.4115307350746215
+   },
+   "COSF": {
+    "auroc": 83.99754666666666,
+    "auroc_ci95": 0.41978497185256,
+    "acc": 85.62666876912117,
+    "acc_ci95": 0.4047006504073077
+   },
+   "CCP-A": {
+    "auroc": 86.42503111111111,
+    "auroc_ci95": 0.3420951668070826,
+    "acc": 85.35066873431205,
+    "acc_ci95": 0.40196798689195495
+   },
+   "CCP-S": {
+    "auroc": 86.66515555555557,
+    "auroc_ci95": 0.3576250686566572,
+    "acc": 85.5626687347889,
+    "acc_ci95": 0.4089713692780917
+   }
+  },
+  "combined_A": {
+   "auroc": 87.46563555555555,
+   "auroc_ci95": 0.3447898795660207,
+   "acc": 85.28266666666666,
+   "acc_ci95": 0.40684619759445545,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "cands_B": {
+   "COS": {
+    "auroc": 83.62112888888888,
+    "auroc_ci95": 0.4245777299969252,
+    "acc": 85.36666876077652,
+    "acc_ci95": 0.3833358026021559
+   },
+   "COSF": {
+    "auroc": 83.93150222222222,
+    "auroc_ci95": 0.4200865346608094,
+    "acc": 85.83066872358322,
+    "acc_ci95": 0.38111569160502135
+   },
+   "CCP-A": {
+    "auroc": 86.22155555555555,
+    "auroc_ci95": 0.34372945377597464,
+    "acc": 85.50800212025642,
+    "acc_ci95": 0.3788688113019501
+   },
+   "CCP-S": {
+    "auroc": 86.48682666666666,
+    "auroc_ci95": 0.3581827180399697,
+    "acc": 85.88266885876655,
+    "acc_ci95": 0.382460751319973
+   }
+  },
+  "combined_B": {
+   "auroc": 87.24755555555556,
+   "auroc_ci95": 0.3431738097184135,
+   "acc": 85.45066666666668,
+   "acc_ci95": 0.3803478049238617,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "gpu_minutes": 6.366357243061065,
+  "when": "2026-09-26 14:09:46"
+ },
+ "seed0_last_5shot": {
+  "ckpt": "research\\dnpg\\meta\\OpenMeta_miniImageNet\\miniImageNet_600_shot_5\\40checkpoint.pth",
+  "ckpt_sha256": "c18c59dd57a7daa21a5f2124151d47c8179d078968c5075f06e7b4e73c23f44f",
+  "phase2_sha256": "ecb712d1a868d4243556fbcb422fafb8520ced990d08e379389510006c095092",
+  "shot": 5,
+  "ckpt_meta": {
+   "epoch": 40,
+   "acc_auroc": null
+  },
+  "n_aug_support_samples": 5,
+  "label_DNPG_own": "selected on validation classes (optimistic vs training-free rows)",
+  "selection_600": {
+   "acc": 85.227,
+   "acc_ci95": 0.542,
+   "auroc": 86.215,
+   "auroc_ci95": 0.486,
+   "stored_at_selection": null
+  },
+  "DNPG_own": {
+   "A": {
+    "auroc": 86.26146666666668,
+    "auroc_ci95": 0.3709830763193506,
+    "acc": 85.32133333333334,
+    "acc_ci95": 0.4045429786378149,
+    "n": 1000
+   },
+   "B": {
+    "auroc": 86.00385777777778,
+    "auroc_ci95": 0.3692802433862294,
+    "acc": 85.47733333333333,
+    "acc_ci95": 0.382871938387527,
+    "n": 1000
+   }
+  },
+  "gap_vs_dnpg_pool_min_cos": 0.9999287724494934,
+  "cands_A": {
+   "COS": {
+    "auroc": 83.64722666666665,
+    "auroc_ci95": 0.4267717452867128,
+    "acc": 85.16800208091736,
+    "acc_ci95": 0.41017368551236727
+   },
+   "COSF": {
+    "auroc": 84.024,
+    "auroc_ci95": 0.42263677372187636,
+    "acc": 85.61466883420944,
+    "acc_ci95": 0.4047080663806953
+   },
+   "CCP-A": {
+    "auroc": 86.45644444444446,
+    "auroc_ci95": 0.3436324032854603,
+    "acc": 85.35333532691001,
+    "acc_ci95": 0.39864065017990213
+   },
+   "CCP-S": {
+    "auroc": 86.63225777777778,
+    "auroc_ci95": 0.36025312198696596,
+    "acc": 85.57600205540658,
+    "acc_ci95": 0.4090086073868716
+   }
+  },
+  "combined_A": {
+   "auroc": 87.50191999999998,
+   "auroc_ci95": 0.34485560698620515,
+   "acc": 85.32133333333334,
+   "acc_ci95": 0.4045429786378149,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "cands_B": {
+   "COS": {
+    "auroc": 83.64147555555554,
+    "auroc_ci95": 0.42681048200673377,
+    "acc": 85.3506687283516,
+    "acc_ci95": 0.38729240928217246
+   },
+   "COSF": {
+    "auroc": 83.95786666666667,
+    "auroc_ci95": 0.42226840482662675,
+    "acc": 85.83066873550415,
+    "acc_ci95": 0.38572899559614443
+   },
+   "CCP-A": {
+    "auroc": 86.26660444444444,
+    "auroc_ci95": 0.344454418033871,
+    "acc": 85.57200214862823,
+    "acc_ci95": 0.381215028061629
+   },
+   "CCP-S": {
+    "auroc": 86.45845333333334,
+    "auroc_ci95": 0.3601154521262566,
+    "acc": 85.85866876840592,
+    "acc_ci95": 0.3847263877307133
+   }
+  },
+  "combined_B": {
+   "auroc": 87.28346666666665,
+   "auroc_ci95": 0.3429728771846157,
+   "acc": 85.47733333333333,
+   "acc_ci95": 0.382871938387527,
+   "row": "DNPG own + CCP-A (z-sum), information only"
+  },
+  "gpu_minutes": 6.357549866040547,
+  "when": "2026-09-26 14:16:11"
+ }
+}

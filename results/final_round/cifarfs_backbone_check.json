@@ -1,0 +1,67 @@
+{
+ "feature_equivalence": {
+  "n_images": 1000,
+  "rows": "RandomState(20261005).choice(9600, 1000, replace=False), sorted",
+  "cosine_min": 0.9998786449432373,
+  "cosine_mean": 0.9999836087226868,
+  "cosine_p01": 0.9999362230300903,
+  "max_abs_diff_per_dim": 0.052310943603515625,
+  "relative_norm_diff_mean": 0.0056073167361319065,
+  "eval_mode": {
+   "module_training_flags": [
+    false
+   ],
+   "two_eval_forwards_bitwise_equal": true,
+   "train_mode_forward_differs": true,
+   "dropblock_in_eval": "DropBlock.forward returns x when not self.training (RFS models/resnet.py)",
+   "dropout_in_eval": "F.dropout(..., training=self.training) is the identity in eval mode"
+  }
+ },
+ "rfs_evaluation_valA_known": {
+  "1": {
+   "LR_features_aug5": {
+    "mean": 62.772,
+    "ci95": 0.7400983946288944
+   },
+   "LR_logits_aug5": {
+    "mean": 63.38,
+    "ci95": 0.7563456898535219
+   },
+   "LR_features_noaug": {
+    "mean": 62.477333333333334,
+    "ci95": 0.7329914863566211
+   }
+  },
+  "5": {
+   "LR_features_aug5": {
+    "mean": 79.36133333333335,
+    "ci95": 0.5343455705055796
+   },
+   "LR_logits_aug5": {
+    "mean": 78.24666666666667,
+    "ci95": 0.5603255733589179
+   },
+   "LR_features_noaug": {
+    "mean": 79.25866666666667,
+    "ci95": 0.5331511541223974
+   }
+  }
+ },
+ "ours_nearest_centroid_valA": {
+  "1": 63.20400138050318,
+  "5": 79.78000185191631
+ },
+ "rfs_published_test": {
+  "1": "71.5 +- 0.8",
+  "5": "86.0 +- 0.5",
+  "source": "Tian et al., ECCV 2020, Table 2, Ours-simple"
+ },
+ "final_epoch": {
+  "epoch": 90,
+  "train_acc_augmented_train_mode": 97.73958333333333,
+  "train_images_eval_acc": 99.61197916666666,
+  "loss": 0.0907643783930689
+ },
+ "when": "2026-10-05 10:58:25",
+ "git_head": "33dfa48be309c8dc72b51b0a701320316719ee89"
+}

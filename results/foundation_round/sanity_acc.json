@@ -1,0 +1,167 @@
+{
+ "cosf_closed_set_acc_valA": {
+  "mini|clip_b16|1": {
+   "cosf_acc_valA": 88.52000222802162,
+   "ci95": 0.5114521193647426,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "mini|clip_b16|5": {
+   "cosf_acc_valA": 97.27866852283478,
+   "ci95": 0.16091252369724368,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "tiered|clip_b16|1": {
+   "cosf_acc_valA": 72.10533500611783,
+   "ci95": 0.706976769259506,
+   "manifest": "tvA_fsor_5way_1shot"
+  },
+  "tiered|clip_b16|5": {
+   "cosf_acc_valA": 88.23866885900497,
+   "ci95": 0.4736334950324955,
+   "manifest": "tvA_fsor_5way_5shot"
+  },
+  "cifarfs|clip_b16|1": {
+   "cosf_acc_valA": 63.34666801393032,
+   "ci95": 0.7622511570659746,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "cifarfs|clip_b16|5": {
+   "cosf_acc_valA": 83.63333540260791,
+   "ci95": 0.5622820877930583,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "cub|clip_b16|1": {
+   "cosf_acc_valA": 85.0946688234806,
+   "ci95": 0.6339634444645825,
+   "manifest": "val_fsor_5way_1shot"
+  },
+  "cub|clip_b16|5": {
+   "cosf_acc_valA": 95.84400190114975,
+   "ci95": 0.2789212619212165,
+   "manifest": "val_fsor_5way_5shot"
+  },
+  "mini|dinov2_s14|1": {
+   "cosf_acc_valA": 92.25200229287148,
+   "ci95": 0.37911604384526,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "mini|dinov2_s14|5": {
+   "cosf_acc_valA": 98.16400151252746,
+   "ci95": 0.12187406669242215,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "tiered|dinov2_s14|1": {
+   "cosf_acc_valA": 83.78133540153503,
+   "ci95": 0.5692455979458242,
+   "manifest": "tvA_fsor_5way_1shot"
+  },
+  "tiered|dinov2_s14|5": {
+   "cosf_acc_valA": 94.36000234484672,
+   "ci95": 0.28982207343870464,
+   "manifest": "tvA_fsor_5way_5shot"
+  },
+  "cifarfs|dinov2_s14|1": {
+   "cosf_acc_valA": 81.22400187253952,
+   "ci95": 0.5710792915587849,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "cifarfs|dinov2_s14|5": {
+   "cosf_acc_valA": 93.76266916394233,
+   "ci95": 0.3097909753660667,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "cub|dinov2_s14|1": {
+   "cosf_acc_valA": 94.18800193667411,
+   "ci95": 0.41521678159164815,
+   "manifest": "val_fsor_5way_1shot"
+  },
+  "cub|dinov2_s14|5": {
+   "cosf_acc_valA": 98.20533447265625,
+   "ci95": 0.17778891496162436,
+   "manifest": "val_fsor_5way_5shot"
+  },
+  "mini|dinov2_b14|1": {
+   "cosf_acc_valA": 94.42933555841446,
+   "ci95": 0.3352236936147038,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "mini|dinov2_b14|5": {
+   "cosf_acc_valA": 98.77600109577179,
+   "ci95": 0.08882543781854008,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "tiered|dinov2_b14|1": {
+   "cosf_acc_valA": 89.1346689581871,
+   "ci95": 0.4808590302445097,
+   "manifest": "tvA_fsor_5way_1shot"
+  },
+  "tiered|dinov2_b14|5": {
+   "cosf_acc_valA": 96.74666858315467,
+   "ci95": 0.20263696018266902,
+   "manifest": "tvA_fsor_5way_5shot"
+  },
+  "cifarfs|dinov2_b14|1": {
+   "cosf_acc_valA": 87.18400217294693,
+   "ci95": 0.457411423874806,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "cifarfs|dinov2_b14|5": {
+   "cosf_acc_valA": 96.35200209617615,
+   "ci95": 0.21601222824727084,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "cub|dinov2_b14|1": {
+   "cosf_acc_valA": 97.10400109887124,
+   "ci95": 0.3315372749187708,
+   "manifest": "val_fsor_5way_1shot"
+  },
+  "cub|dinov2_b14|5": {
+   "cosf_acc_valA": 98.96933398842812,
+   "ci95": 0.14684676046394166,
+   "manifest": "val_fsor_5way_5shot"
+  },
+  "mini|dinov2_l14|1": {
+   "cosf_acc_valA": 94.69200221896172,
+   "ci95": 0.31752417313967096,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "mini|dinov2_l14|5": {
+   "cosf_acc_valA": 98.94133431315421,
+   "ci95": 0.08120541135892724,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "tiered|dinov2_l14|1": {
+   "cosf_acc_valA": 91.28533557653427,
+   "ci95": 0.44127977276552055,
+   "manifest": "tvA_fsor_5way_1shot"
+  },
+  "tiered|dinov2_l14|5": {
+   "cosf_acc_valA": 97.69600164294243,
+   "ci95": 0.15460718598169246,
+   "manifest": "tvA_fsor_5way_5shot"
+  },
+  "cifarfs|dinov2_l14|1": {
+   "cosf_acc_valA": 87.5040022611618,
+   "ci95": 0.45103755407492,
+   "manifest": "valA_fsor_5way_1shot"
+  },
+  "cifarfs|dinov2_l14|5": {
+   "cosf_acc_valA": 96.94933542609215,
+   "ci95": 0.15643051823350232,
+   "manifest": "valA_fsor_5way_5shot"
+  },
+  "cub|dinov2_l14|1": {
+   "cosf_acc_valA": 98.00133412480355,
+   "ci95": 0.27443727830763087,
+   "manifest": "val_fsor_5way_1shot"
+  },
+  "cub|dinov2_l14|5": {
+   "cosf_acc_valA": 99.11333389282227,
+   "ci95": 0.1460844732927413,
+   "manifest": "val_fsor_5way_5shot"
+  }
+ },
+ "gpu_minutes": 15.13105688492457,
+ "when": "2026-10-06 10:51:27",
+ "git_head": "c14b3385d12537e6b306f835550812c7b4b9b924"
+}

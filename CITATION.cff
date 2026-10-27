@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software or its recorded results, please cite the paper (preferred-citation) and this repository."
+title: "Cohort-calibrated prototypes for few-shot open-set recognition: code, episode manifests and recorded results"
+version: 2.0.0
+doi: 10.5281/zenodo.23695548
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23695548
+    description: "Zenodo record of release 2.0.0 (code, recorded results and release assets)"
+  - type: url
+    value: "https://github.com/adu-baffour/cohort-calibrated-prototypes/releases/tag/v2.0.0"
+    description: "GitHub release v2.0.0 (the same release assets)"
+date-released: "2026-10-26"
+license: MIT
+repository-code: "https://github.com/adu-baffour/cohort-calibrated-prototypes"
+url: "https://github.com/adu-baffour/cohort-calibrated-prototypes"
+authors:
+  - family-names: "Adjei-Mensah"
+    given-names: "Isaac"
+    orcid: "https://orcid.org/0000-0003-2519-7308"
+  - family-names: "Baffour"
+    given-names: "Adu A."
+    orcid: "https://orcid.org/0000-0002-3349-8154"
+keywords:
+  - few-shot learning
+  - open-set recognition
+  - score normalization
+  - cohort normalization
+  - out-of-distribution detection
+preferred-citation:
+  type: article
+  title: "Cohort-calibrated prototypes for few-shot open-set recognition"
+  authors:
+    - family-names: "Adjei-Mensah"
+      given-names: "Isaac"
+      orcid: "https://orcid.org/0000-0003-2519-7308"
+    - family-names: "Baffour"
+      given-names: "Adu A."
+      orcid: "https://orcid.org/0000-0002-3349-8154"
+  journal: "Neurocomputing"
+  year: 2026
+  status: submitted

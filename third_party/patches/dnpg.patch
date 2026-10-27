@@ -1,0 +1,124 @@
+diff --git a/pretrain/pretrain_openW/batch_process.py b/pretrain/pretrain_openW/batch_process.py
+index f6769c4..bc55d34 100644
+--- a/pretrain/pretrain_openW/batch_process.py
++++ b/pretrain/pretrain_openW/batch_process.py
+@@ -54,7 +54,7 @@ parser.add_argument('--num-centers', type=int, default=4)
+ 
+ 
+ args = parser.parse_args()
+-args.logroot = os.path.join(os.path.abspath('.'),'logs')
++args.logroot = os.path.abspath(args.model_path)  # DNPG-local patch: was os.path.join(os.path.abspath('.'),'logs'), ignoring --model_path
+ if not os.path.isdir(args.logroot):
+     os.makedirs(args.logroot)
+ args.n_gpu = torch.cuda.device_count()
+diff --git a/pretrain/pretrain_openW/loss/GCPLoss.py b/pretrain/pretrain_openW/loss/GCPLoss.py
+index f2ec2be..bfb4504 100644
+--- a/pretrain/pretrain_openW/loss/GCPLoss.py
++++ b/pretrain/pretrain_openW/loss/GCPLoss.py
+@@ -8,7 +8,7 @@ class GCPLoss(nn.CrossEntropyLoss):
+         super(GCPLoss, self).__init__()
+         self.weight_pl = options['weight_pl']
+         self.temp = options['temp']
+-        self.Dist = Dist(num_classes=60, feat_dim=640) # 
++        self.Dist = Dist(num_classes=options.get('num_classes', 60), feat_dim=640) # 
+ 
+     def forward(self, x, y, labels=None):
+         #labels = labels.long()
+diff --git a/pretrain/pretrain_openW/loss/RPLoss.py b/pretrain/pretrain_openW/loss/RPLoss.py
+index faef05a..6c8d4f1 100644
+--- a/pretrain/pretrain_openW/loss/RPLoss.py
++++ b/pretrain/pretrain_openW/loss/RPLoss.py
+@@ -8,7 +8,7 @@ class RPLoss(nn.CrossEntropyLoss):
+         super(RPLoss, self).__init__()
+         self.weight_pl = float(options['weight_pl'])
+         self.temp = options['temp']
+-        self.Dist = Dist(num_classes=60, feat_dim=640, num_centers=options['num_centers'])
++        self.Dist = Dist(num_classes=options.get('num_classes', 60), feat_dim=640, num_centers=options['num_centers'])
+         self.radius = 1
+ 
+         self.radius = nn.Parameter(torch.Tensor(self.radius))
+diff --git a/pretrain/pretrain_openW/trainer/BaseTrainer.py b/pretrain/pretrain_openW/trainer/BaseTrainer.py
+index 5cd8181..6ccb97d 100644
+--- a/pretrain/pretrain_openW/trainer/BaseTrainer.py
++++ b/pretrain/pretrain_openW/trainer/BaseTrainer.py
+@@ -89,6 +89,7 @@ class BaseTrainer(object):
+         self.criterion = {'feat':SupConLoss(temperature=args.temp),'logit':nn.BCEWithLogitsLoss() if self.args.use_bce else nn.CrossEntropyLoss()} #
+ 
+         ################################################
++        args.num_classes = self.n_cls  # DNPG-local patch: was hard-coded 60 (FC100) in loss/RPLoss.py, loss/GCPLoss.py
+         options = vars(args)
+         Loss = importlib.import_module('loss.RPLoss')
+         self.RPLcriterion = getattr(Loss, 'RPLoss')(**options).cuda()
+@@ -234,7 +235,7 @@ class BaseTrainer(object):
+         }     
+         file_name = '{}.pth'.format('epoch_'+str(epoch) if name is None else name)
+         print('==> Saving', file_name)
+-        torch.save(state, os.path.join('/root/autodl-tmp/DNPG/pretrain/pretrain_openW/logs', file_name))
++        torch.save(state, os.path.join(self.save_path, file_name))  # DNPG-local patch: was hard-coded '/root/autodl-tmp/DNPG/pretrain/pretrain_openW/logs'
+     
+     def eval_report(self,eval_loader,path):
+         print('Loading data from', path)
+diff --git a/trainer/MetaTrainer.py b/trainer/MetaTrainer.py
+index db8a6ee..c36b760 100644
+--- a/trainer/MetaTrainer.py
++++ b/trainer/MetaTrainer.py
+@@ -10,6 +10,7 @@ from tqdm import tqdm
+ import pdb
+ 
+ import torch
++ACCUM_EPISODES = os.environ.get('DNPG_ACCUM_EPISODES', '0') == '1'  # DNPG-local patch, see train_episode
+ import torch.optim as optim
+ import torch.nn as nn
+ import torch.backends.cudnn as cudnn
+@@ -186,12 +187,33 @@ class MetaTrainer(object):
+                 the_label   = (support_label,query_label,suppopen_label,openset_label)
+                 the_conj    = (supp_idx, open_idx)
+ 
+-                _, _, probs, loss = model(the_img,the_label,the_conj,base_ids,Epoch = epoch)
+-                query_cls_probs, openset_cls_probs = probs
+-                (loss_cls, loss_open_hinge, loss_funit) = loss
+-                loss_open = args.gamma * loss_open_hinge + args.funit * loss_funit
+-
+-                loss = loss_open + loss_cls
++                if ACCUM_EPISODES:
++                    # DNPG-local patch (tiered 5-shot only, human ruling 2026-09-29; env DNPG_ACCUM_EPISODES=1): the batch of
++                    # n_train_para episodes does not fit in 24 GB, so each episode is forwarded and back-propagated on its own with
++                    # its loss divided by the number of episodes, and one optimizer step follows (gradient accumulation). DNPG's losses
++                    # are means over equal-sized episodes, so the averaged loss equals the joint one; BatchNorm batch statistics are
++                    # per episode instead of pooled. Metrics below are computed on the concatenated outputs, as before.
++                    ne = support_data.size(0)
++                    optimizer.zero_grad()
++                    parts = []
++                    for k in range(ne):
++                        sl = slice(k, k + 1)
++                        _, _, probs_k, loss_k = model(tuple(x[sl] for x in the_img), tuple(y[sl] for y in the_label), (supp_idx[sl], open_idx[sl]),
++                                                      base_ids[sl], Epoch = epoch)
++                        (lc, loh, lf) = loss_k
++                        ((args.gamma * loh + args.funit * lf + lc) / ne).backward()
++                        parts.append((tuple(pr.detach() for pr in probs_k), lc.detach(), loh.detach(), lf.detach()))
++                    probs = tuple(torch.cat([pt[0][j] for pt in parts], dim=0) for j in range(2))
++                    loss_cls = torch.stack([pt[1] for pt in parts]).mean()
++                    loss_funit = torch.stack([pt[3] for pt in parts]).mean()
++                    query_cls_probs, openset_cls_probs = probs
++                else:
++                    _, _, probs, loss = model(the_img,the_label,the_conj,base_ids,Epoch = epoch)
++                    query_cls_probs, openset_cls_probs = probs
++                    (loss_cls, loss_open_hinge, loss_funit) = loss
++                    loss_open = args.gamma * loss_open_hinge + args.funit * loss_funit
++
++                    loss = loss_open + loss_cls
+                 
+                 ### Closed Set Accuracy
+                 close_pred = np.argmax(probs[0][:,:,:self.args.n_ways].view(-1,self.args.n_ways).cpu().numpy(),-1)
+@@ -210,8 +232,9 @@ class MetaTrainer(object):
+                 losses_funit.update(loss_funit.item(), 1)
+ 
+                 # ===================backward=====================
+-                optimizer.zero_grad()
+-                loss.backward()
++                if not ACCUM_EPISODES:
++                    optimizer.zero_grad()
++                    loss.backward()
+                 optimizer.step()
+             
+                 # ===================meters=====================

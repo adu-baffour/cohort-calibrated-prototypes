@@ -1,0 +1,12 @@
+# The final paper is the specification of this repository. Its LaTeX sources are not redistributed here: extract the pinned zip into
+# the git-ignored folder paper/ (python scripts/paper_pin.py extract). The tier-1 check compares the generated tables with
+# paper/tables/T1-T8.tex.
+title: Cohort-calibrated prototypes for few-shot open-set recognition
+authors: [Isaac Adjei-Mensah, Adu A. Baffour]
+zip_name: CCP_for_FSOR_v19.zip
+zip_path: paper_final/CCP_for_FSOR_v19.zip
+zip_sha256: aa9196208a656854e582409e5d47fabd33dd3d33b22eaa1e42b8a33e0207d65b
+extract_to: paper/
+# final version (v19, 2026-10-27; the zip lives in the git-ignored folder paper_final/). The sources compile as distributed (cas-dc,
+# thumbnails included) to 20 pages, the page count of the zip's own manuscript.pdf (built 2026-10-27).
+pages: 20

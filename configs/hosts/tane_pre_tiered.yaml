@@ -1,0 +1,21 @@
+# Released TANE/DNPG pre-trained ResNet-12 (tiered). FLAG: stored epoch 81 is consistent with test-split selection by the original authors.
+name: tane_pre_tiered
+kind: tane_pre
+dataset: tiered
+view: bgr84
+channel_order: BGR
+feature_dtype: fp16   # stored precision of the raw GAP pair in the registered test path
+channels_last: true
+checkpoint:
+  path: "third_party/tane/tieredImageNet_pre.pth"
+  sha256: "93b39fc2ed47fff92bdf520a8c846be64375082c38d31effee94826eca7f4572"
+  source: "https://drive.google.com/drive/folders/1mj8j5ZChRFLcYMBWEsBBhst8uQTOz_WJ (file id 10l5BuxwBd9Z0YHuK5ySrNFSqv3w8XnnM)"
+  license: "link only"
+  stored_epoch: 81
+test_selection_flag: true
+bank:
+  file: banks/tiered/tane_pre_tiered.npz
+  sha256: 360d8b9fff31a4278828cdd758fa94f4b39fb08543a78563262c286e23efe257
+  embed: full_split
+scores: [COS, COSF, CCP-A, CCP-S]
+recorded_path: research/fsor/fsor_final.py run_tiered (TIERED bundle part)

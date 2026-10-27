@@ -1,0 +1,56 @@
+{
+ "bf16_vs_fp32": {
+  "clip_b16": {
+   "n_images": 500,
+   "images": "the first 500 mini base images (eval84)",
+   "cosine_mean": 0.9999074935913086,
+   "cosine_min": 0.9990636110305786
+  },
+  "dinov2_s14": {
+   "n_images": 500,
+   "images": "the first 500 mini base images (eval84)",
+   "cosine_mean": 0.9998148083686829,
+   "cosine_min": 0.9994840025901794
+  },
+  "dinov2_b14": {
+   "n_images": 500,
+   "images": "the first 500 mini base images (eval84)",
+   "cosine_mean": 0.9998829960823059,
+   "cosine_min": 0.9993837475776672
+  },
+  "dinov2_l14": {
+   "n_images": 500,
+   "images": "the first 500 mini base images (eval84)",
+   "cosine_mean": 0.9998813271522522,
+   "cosine_min": 0.9965275526046753
+  }
+ },
+ "bank_nan": {
+  "mini_clip_b16": false,
+  "tiered_clip_b16": false,
+  "cifarfs_clip_b16": false,
+  "cub_clip_b16": false,
+  "mini_dinov2_s14": false,
+  "tiered_dinov2_s14": false,
+  "cifarfs_dinov2_s14": false,
+  "cub_dinov2_s14": false,
+  "mini_dinov2_b14": false,
+  "tiered_dinov2_b14": false,
+  "cifarfs_dinov2_b14": false,
+  "cub_dinov2_b14": false,
+  "mini_dinov2_l14": false,
+  "tiered_dinov2_l14": false,
+  "cifarfs_dinov2_l14": false,
+  "cub_dinov2_l14": false,
+  "cub_clip_b16_eval224": false,
+  "cub_dinov2_b14_eval224": false
+ },
+ "weights_sha256_match": {
+  "clip_b16": true,
+  "dinov2_s14": true,
+  "dinov2_b14": true,
+  "dinov2_l14": true
+ },
+ "when": "2026-10-06 10:35:50",
+ "git_head": "1a6566208c55f01c181aa34e4ac0172b67017188"
+}

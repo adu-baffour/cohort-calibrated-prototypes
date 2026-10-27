@@ -1,0 +1,54 @@
+# DNPG trained by us from the released TANE/DNPG mini backbone, seed 2; per-epoch selection on the 16 mini val classes.
+name: dnpg_mini_seed2
+kind: dnpg
+dataset: mini
+view: whole84
+channel_order: RGB
+feature_dtype: fp32   # stored precision of the raw GAP pair in the registered test path
+channels_last: false
+code: {repo: "https://github.com/gary23ai/DNPG", commit: 38b8fd13656ae66c87488415223a8df24ad67c80, patch: third_party/patches/dnpg.patch}
+backbone_init: {path: third_party/tane/miniImageNet_pre.pth, sha256: 2bd34c4594b77faa3710bca3f363f54219754951e24bc353be0c1b41f3d22bbb, flag: "stored epoch 66, consistent with test-selected max_meta"}
+checkpoints:
+  phase2:
+    path: "dnpg/mini/seed2/phase2_mini_last.pth"
+    sha256: "e2a00f5c6076789bd83469f617e0b48daf4eb6d6148b613ecb6511df9e4716f0"
+    source: "release asset (ours)"
+    note: "Phase 2 open weights (epoch 50); needed to construct the model"
+  max_acc_1shot:
+    path: "dnpg/mini/seed2/max_acc_1shot.pth"
+    sha256: "948fb2ed7c3df5a4f86d0334e6acfb08f0bef39ee8fe17711359174bce859594"
+    source: "release asset (ours)"
+    epoch: 36
+  last_1shot:
+    path: "dnpg/mini/seed2/last_1shot.pth"
+    sha256: "05e8ee38fc04f6e9eeffa6fe271d9e2b9aef7a26a0d3fd94e56633a5445657a8"
+    source: "release asset (ours)"
+    note: "40checkpoint.pth (last epoch); information only"
+  max_acc_5shot:
+    path: "dnpg/mini/seed2/max_acc_5shot.pth"
+    sha256: "ad5f5878788c21de8794cb2e6d5108122563e06a8450cb4312011c3ef416efea"
+    source: "release asset (ours)"
+    epoch: 35
+  last_5shot:
+    path: "dnpg/mini/seed2/last_5shot.pth"
+    sha256: "d44012c830c0396d9ad4318a6ba56328dda8a11ebb6afb5efc70142e04bd6fc2"
+    source: "release asset (ours)"
+    note: "40checkpoint.pth (last epoch); information only"
+bank:
+  1shot:
+    file: banks/mini/dnpg_mini_seed2_1shot.npz
+    sha256: b7af0836dad48575efc4181d093a41bb32f9436501e77dd78aa8075c815dc662
+    embed: full_split
+  5shot:
+    file: banks/mini/dnpg_mini_seed2_5shot.npz
+    sha256: f23809124ad48bdcb599d885a5380467ba9c6bd80ab0e5c2b5936a4f91c826fa
+    embed: full_split
+fusion:
+  own_score: D
+  definition: "w = pooled std(D) / pooled std(CCP-A), w2 = pooled std(D) / pooled std(COSF), ddof 0 over all 1,000 x 150 valA query scores, max_acc.pth (DNPG_SETUP.md section 10)"
+  provenance: "research/status/dnpg_hfix.json (weights) = research/FINAL_BUNDLE.md yaml-fsor-mini-dnpg"
+  frozen_weights:
+    1shot: {w: 2.6329064035074827, w2: 2.4063514307050413}
+    5shot: {w: 2.867463077549045, w2: 2.6397040463604116}
+rows: [D, H_fix, K_fix, H, K, CCP-A, COSF]
+recorded_path: research/fsor/fsor_final.py run_mini_dnpg (MINI-DNPG bundle part, token 01fcac4666048f3e)

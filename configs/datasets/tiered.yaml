@@ -1,0 +1,21 @@
+# tieredImageNet (Ren et al.; 351 / 97 / 160 classes) from the learn2learn copy. Prepared by scripts/prepare_data/tiered.py; see docs/data.md.
+name: tiered
+source: "https://zenodo.org/records/7978538 (learn2learn: tiered-imagenet-{train,val,test}_{images_png,labels}.pkl)"
+md5: {train_images_png: e1a48fcfa1c8b3a0b402a19ba892adfb, val_images_png: 6162949244106b348e24264057f5b66e, test_images_png: 4d9b27d03460a3b2c525c249655ae501}
+sizes: {train: 448695, val: 124261, test: 206209}
+classes: {train: 351, val: 97, test: 160}
+global_index: "train 0-448694 | val 448695-572955 | test 572956-779164 (label-pickle order within each split)"
+channel_order: BGR   # the released tiered checkpoints were trained on BGR tensors (docs/protocol.md, 'Channel order')
+normalisation: {mean: [120.39586422, 115.59361427, 104.54012653], std: [70.68188272, 68.27635443, 72.54505529], scale: "divide by 255 first; applied to the BGR tensor"}
+views:
+  bgr84: {transform: "PIL decode of the 84x84 PNG, RGB -> BGR channel flip, no resize"}
+validation_split: {seed: 20260925, rule: "the 97 val classes permuted with RandomState(20260925); first 48 = tvA, other 49 = tvB (class-disjoint)"}
+bank_subset: {seed: 20260926, size: 38400, rule: "np.sort(RandomState(20260926).choice(448695, 38400, replace=False))"}
+prepared_sha256:
+  train_bgr84: cdbfa0fc7845380852f51572b99de905dbb8d3b53ea6bb1b54c40c390caf9869
+  val_bgr84: 2b0d8522e4b87e3031ef0c4c6011cd7c4cfd3d61ae6f3676b5fe2d21ad9bb418
+  test_bgr84: 9c4a134a3e5f62230077da9e4c63da9c646f852a6c402f0a371e8f25f97cbfe9
+  train_labels: a918b1650bad4890095d78e72f95892cb78697cb8331645400baa2123436da81
+  val_labels: 66f590814e4e2f7a37cf62f88b014d19e4e89125538f7fb24dc2281258f481bc
+  test_labels: 55ffb1308f9aa6066b99c84430be77099a927d95199379fb7c7c127d1c22551e
+manifests: [tvA_fsor_5way_1shot, tvA_fsor_5way_5shot, tvB_fsor_5way_1shot, tvB_fsor_5way_5shot, test_fsor_5way_1shot, test_fsor_5way_5shot]

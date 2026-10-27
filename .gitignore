@@ -1,0 +1,29 @@
+# the paper sources (extracted from the pinned zip; see configs/paper.yaml); not redistributed
+/paper/
+/paper_final/
+# release assets, data and checkpoints never enter git (see docs/checkpoints.md)
+/release_assets/
+/checkpoints/
+/data/
+/runs/
+results/generated/
+third_party/*/
+!third_party/patches/
+!third_party/shims/
+!third_party/fonts/
+*.pth
+*.pt
+*.npy
+*.npz
+*.pkl
+*.pickle
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+# figures that contain dataset images (mini-ImageNet): generated or kept locally, never redistributed (scripts/release_scan.py)
+/paper_assets/figures/fig1_method.pdf
+/paper_assets/figures/fig4_examples.pdf
+/figures/src/Figure1_CCP-A_overview.pdf
+/figures/src/Figure1_CCP-A_overview.drawio

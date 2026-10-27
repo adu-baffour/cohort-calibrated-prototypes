@@ -1,0 +1,25 @@
+{
+ "seed": 0,
+ "dataset": "tieredImageNet",
+ "started": "2026-09-28 10:33:53",
+ "stage": "done",
+ "phase2": {
+  "rc": 0,
+  "minutes": 381.63350793917976,
+  "finished": "2026-09-28 16:55:31"
+ },
+ "meta_1shot": {
+  "rc": 0,
+  "minutes": 101.76483733654023,
+  "finished": "2026-09-28 18:37:17"
+ },
+ "meta_relaunch": "2026-09-29 10:10:06",
+ "meta_5shot_accumulation": "2 episodes per step, one at a time (DNPG_ACCUM_EPISODES=1)",
+ "meta_5shot": {
+  "rc": 0,
+  "minutes": 243.3195822874705,
+  "finished": "2026-09-29 14:13:25"
+ },
+ "total_minutes": 243.3199150244395,
+ "finished": "2026-09-29 14:13:25"
+}

@@ -1,0 +1,22 @@
+{
+ "arrays": {
+  "train": {
+   "file": "cub/prepared/eval224_train.npy",
+   "sha256": "bc144848c70b5284f7e9acfcd75564650980834afdf1793df9cd0f2719c78d81"
+  },
+  "val": {
+   "file": "cub/prepared/eval224_val.npy",
+   "sha256": "ce77089e267b01295a7707d26e51f98fd583590d0af4266a0f1699abfbb9a55e"
+  },
+  "test": {
+   "file": "cub/prepared/eval224_test.npy",
+   "sha256": "7338b7a79f7f74a2d23a84a1b40eff77fd121af1eb4b0ca4aa6f82f921baa080"
+  },
+  "index": {
+   "file": "cub/prepared/index.json",
+   "sha256": "a4568cba63ce7d63905c1d4e1ef73918a75658f8b3c84f0964d54251fa53884a"
+  }
+ },
+ "when": "2026-10-06 10:21:06",
+ "git_head": "b317293bf8623b4965dce91d1c6a5da8f1e1cfde"
+}

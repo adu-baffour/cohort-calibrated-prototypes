@@ -1,0 +1,10 @@
+{
+ "token_at_dry_run": "edf002a3621afe87",
+ "compared_values": 4384,
+ "max_abs_diff_vs_validation": 0.0,
+ "tolerance": 0.0,
+ "pass": true,
+ "gpu_minutes": 37.26884735425313,
+ "when": "2026-10-06 12:20:29",
+ "git_head": "20789f4a961fa9dd1cc1a40f580b7b1caa3da5bb"
+}

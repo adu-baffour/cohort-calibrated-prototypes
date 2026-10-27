@@ -1,0 +1,387 @@
+{
+ "started": "2026-09-28 09:39:10",
+ "phase2_smoke": {
+  "checkpoint": "research\\dnpg\\smoke\\tiered_p2\\EntropyRot\\tieredImageNet_ResNet12_batch_128_lr_0.05\\mini_last.pth",
+  "minutes": 6.85045991341273
+ },
+ "Z1": {
+  "placeholders": "zeros",
+  "losses": [
+   [
+    0,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    1,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    2,
+    "Acc=0.81, Auroc=0.80, cls_ce=4.32, funit=2.0465"
+   ],
+   [
+    3,
+    "Acc=0.79, Auroc=0.81, cls_ce=3.50, funit=1.6345"
+   ],
+   [
+    4,
+    "Acc=0.79, Auroc=0.79, cls_ce=3.08, funit=1.4244"
+   ],
+   [
+    5,
+    "Acc=0.81, Auroc=0.80, cls_ce=2.83, funit=1.2926"
+   ],
+   [
+    6,
+    "Acc=0.80, Auroc=0.79, cls_ce=2.68, funit=1.1995"
+   ],
+   [
+    7,
+    "Acc=0.80, Auroc=0.80, cls_ce=2.57, funit=1.1284"
+   ],
+   [
+    8,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.46, funit=1.0711"
+   ],
+   [
+    9,
+    "Acc=0.82, Auroc=0.81, cls_ce=2.39, funit=1.0255"
+   ],
+   [
+    10,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.33, funit=0.9915"
+   ],
+   [
+    11,
+    "Acc=0.81, Auroc=0.82, cls_ce=2.27, funit=0.9644"
+   ],
+   [
+    12,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.23, funit=0.9405"
+   ],
+   [
+    13,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.18, funit=0.9194"
+   ],
+   [
+    14,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.13, funit=0.9009"
+   ],
+   [
+    15,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.10, funit=0.8846"
+   ],
+   [
+    16,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.07, funit=0.8709"
+   ],
+   [
+    17,
+    "Acc=0.82, Auroc=0.83, cls_ce=2.04, funit=0.8587"
+   ],
+   [
+    18,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.02, funit=0.8478"
+   ],
+   [
+    19,
+    "Acc=0.83, Auroc=0.84, cls_ce=2.00, funit=0.8383"
+   ],
+   [
+    20,
+    "Acc=0.83, Auroc=0.84, cls_ce=1.98, funit=0.8294"
+   ]
+  ],
+  "minutes": 4.954381982485454,
+  "log": "research\\runs\\placeholder_meta_Z1.log"
+ },
+ "R": {
+  "placeholders": "random",
+  "losses": [
+   [
+    0,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    1,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    2,
+    "Acc=0.81, Auroc=0.80, cls_ce=4.32, funit=2.0465"
+   ],
+   [
+    3,
+    "Acc=0.79, Auroc=0.81, cls_ce=3.50, funit=1.6345"
+   ],
+   [
+    4,
+    "Acc=0.79, Auroc=0.79, cls_ce=3.08, funit=1.4244"
+   ],
+   [
+    5,
+    "Acc=0.81, Auroc=0.80, cls_ce=2.83, funit=1.2926"
+   ],
+   [
+    6,
+    "Acc=0.80, Auroc=0.79, cls_ce=2.68, funit=1.1995"
+   ],
+   [
+    7,
+    "Acc=0.80, Auroc=0.80, cls_ce=2.57, funit=1.1284"
+   ],
+   [
+    8,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.46, funit=1.0711"
+   ],
+   [
+    9,
+    "Acc=0.82, Auroc=0.81, cls_ce=2.39, funit=1.0255"
+   ],
+   [
+    10,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.33, funit=0.9915"
+   ],
+   [
+    11,
+    "Acc=0.81, Auroc=0.82, cls_ce=2.27, funit=0.9644"
+   ],
+   [
+    12,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.23, funit=0.9405"
+   ],
+   [
+    13,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.18, funit=0.9194"
+   ],
+   [
+    14,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.13, funit=0.9009"
+   ],
+   [
+    15,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.10, funit=0.8846"
+   ],
+   [
+    16,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.07, funit=0.8709"
+   ],
+   [
+    17,
+    "Acc=0.82, Auroc=0.83, cls_ce=2.04, funit=0.8587"
+   ],
+   [
+    18,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.02, funit=0.8478"
+   ],
+   [
+    19,
+    "Acc=0.83, Auroc=0.84, cls_ce=2.00, funit=0.8383"
+   ],
+   [
+    20,
+    "Acc=0.83, Auroc=0.84, cls_ce=1.98, funit=0.8294"
+   ]
+  ],
+  "minutes": 4.957799724737803,
+  "log": "research\\runs\\placeholder_meta_R.log"
+ },
+ "Z2": {
+  "placeholders": "zeros",
+  "losses": [
+   [
+    0,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    1,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    2,
+    "Acc=0.81, Auroc=0.80, cls_ce=4.32, funit=2.0465"
+   ],
+   [
+    3,
+    "Acc=0.79, Auroc=0.81, cls_ce=3.50, funit=1.6345"
+   ],
+   [
+    4,
+    "Acc=0.79, Auroc=0.79, cls_ce=3.08, funit=1.4244"
+   ],
+   [
+    5,
+    "Acc=0.81, Auroc=0.80, cls_ce=2.83, funit=1.2926"
+   ],
+   [
+    6,
+    "Acc=0.80, Auroc=0.79, cls_ce=2.68, funit=1.1995"
+   ],
+   [
+    7,
+    "Acc=0.80, Auroc=0.80, cls_ce=2.57, funit=1.1284"
+   ],
+   [
+    8,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.46, funit=1.0711"
+   ],
+   [
+    9,
+    "Acc=0.82, Auroc=0.81, cls_ce=2.39, funit=1.0255"
+   ],
+   [
+    10,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.33, funit=0.9915"
+   ],
+   [
+    11,
+    "Acc=0.81, Auroc=0.82, cls_ce=2.27, funit=0.9644"
+   ],
+   [
+    12,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.23, funit=0.9405"
+   ],
+   [
+    13,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.18, funit=0.9194"
+   ],
+   [
+    14,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.13, funit=0.9009"
+   ],
+   [
+    15,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.10, funit=0.8846"
+   ],
+   [
+    16,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.07, funit=0.8709"
+   ],
+   [
+    17,
+    "Acc=0.82, Auroc=0.83, cls_ce=2.04, funit=0.8587"
+   ],
+   [
+    18,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.02, funit=0.8478"
+   ],
+   [
+    19,
+    "Acc=0.83, Auroc=0.84, cls_ce=2.00, funit=0.8383"
+   ],
+   [
+    20,
+    "Acc=0.83, Auroc=0.84, cls_ce=1.98, funit=0.8294"
+   ]
+  ],
+  "minutes": 4.6888464490572614,
+  "log": "research\\runs\\placeholder_meta_Z2.log"
+ },
+ "n_iterations_logged": {
+  "Z1": 21,
+  "R": 21,
+  "Z2": 21
+ },
+ "losses_identical_Z1_R": true,
+ "losses_identical_Z1_Z2": true,
+ "weights_max_abs_diff_Z1_R": 0.0006470084190368652,
+ "weights_max_abs_diff_Z1_Z2": 3.933906555175781e-06,
+ "zero_placeholders_restored": true,
+ "minutes": 21.454925759633383,
+ "NAN": {
+  "placeholders": "all NaN",
+  "losses": [
+   [
+    0,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    1,
+    "Acc=0.81, Auroc=0.77, cls_ce=6.38, funit=3.2963"
+   ],
+   [
+    2,
+    "Acc=0.81, Auroc=0.80, cls_ce=4.32, funit=2.0465"
+   ],
+   [
+    3,
+    "Acc=0.79, Auroc=0.81, cls_ce=3.50, funit=1.6345"
+   ],
+   [
+    4,
+    "Acc=0.79, Auroc=0.79, cls_ce=3.08, funit=1.4244"
+   ],
+   [
+    5,
+    "Acc=0.81, Auroc=0.80, cls_ce=2.83, funit=1.2926"
+   ],
+   [
+    6,
+    "Acc=0.80, Auroc=0.79, cls_ce=2.68, funit=1.1995"
+   ],
+   [
+    7,
+    "Acc=0.80, Auroc=0.80, cls_ce=2.57, funit=1.1284"
+   ],
+   [
+    8,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.46, funit=1.0711"
+   ],
+   [
+    9,
+    "Acc=0.82, Auroc=0.81, cls_ce=2.39, funit=1.0255"
+   ],
+   [
+    10,
+    "Acc=0.81, Auroc=0.81, cls_ce=2.33, funit=0.9915"
+   ],
+   [
+    11,
+    "Acc=0.81, Auroc=0.82, cls_ce=2.27, funit=0.9644"
+   ],
+   [
+    12,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.23, funit=0.9405"
+   ],
+   [
+    13,
+    "Acc=0.82, Auroc=0.82, cls_ce=2.18, funit=0.9194"
+   ],
+   [
+    14,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.13, funit=0.9009"
+   ],
+   [
+    15,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.10, funit=0.8846"
+   ],
+   [
+    16,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.07, funit=0.8709"
+   ],
+   [
+    17,
+    "Acc=0.82, Auroc=0.83, cls_ce=2.04, funit=0.8587"
+   ],
+   [
+    18,
+    "Acc=0.83, Auroc=0.83, cls_ce=2.02, funit=0.8478"
+   ],
+   [
+    19,
+    "Acc=0.83, Auroc=0.84, cls_ce=2.00, funit=0.8383"
+   ],
+   [
+    20,
+    "Acc=0.83, Auroc=0.84, cls_ce=1.98, funit=0.8294"
+   ]
+  ],
+  "losses_identical_to_Z1": true,
+  "weights_all_finite": true,
+  "log": "research\\runs\\placeholder_meta_NAN.log",
+  "minutes": 5.115792667865753
+ },
+ "nan_placeholders_never_reach_computation": true,
+ "PASS_preregistered_losses_identical": true,
+ "note": "Pre-registered check: logged per-iteration losses (DNPG tqdm: Acc, Auroc, cls_ce, funit) identical with zero and random placeholders: holds (21/21). Weights after 20 steps are not bitwise reproducible even with identical inputs (Z1 vs Z2 max |diff| 3.9e-6, GPU non-determinism); Z1 vs R 6.5e-4. Decisive checks: all-NaN placeholders give finite weights and losses identical to Z1 (21/21), and the code never uses them (AttnClassifier.init_representation ignores seman_dict; base_seman / support_seman are set to None at AttnClassifier.py:117-134, 170-171, 221-222)."
+}

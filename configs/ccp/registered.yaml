@@ -1,0 +1,18 @@
+# The registered CCP definitions (frozen 2026-09-25, before any tieredImageNet or test data). Paper Section 3 (equation numbers of the paper).
+embedding: "Eq. 1: z(x) = n(g(x) + g(flip x)); g = the host encoder's feature (bf16 autocast forward, fp16-rounded feature map, fp32 mean)"
+prototype: "Eq. 2: p_k = n(mean over the S supports of [g(x) + g(flip x)])"
+bank: {mini-ImageNet: "all 38,400 base images", tieredImageNet: "RandomState(20260926) subset of 38,400 of the 448,695 base images (BGR)",
+       CIFAR-FS: "all 38,400 base images", CUB (foundation models): "all 5,903 base images", encoder: "the host's own"}
+cohort_statistic: "Eq. 3: m_K(v) = mean of the K = 1000 largest cosines of v to the bank (chunks of 2,048 rows)"
+scores:
+  COS: {definition: "-max_k cos(z0(q), p0_k), single view", label: "argmax_k cos"}
+  COSF: {definition: "-max_k c_k(q), mirror views", label: "argmax_k c_k"}
+  CCP-A: {K: 1000, definition: "Eq. 4-5: -max_k [c_k - 1/2 (m_K(q) + m_K(p_k))] = 1/2 m_K(q) - max_k [c_k - 1/2 m_K(p_k)]", label: "argmax_k s_k"}
+  CCP-S: {definition: "-max_k 1/2 [(c_k - m(p_k)) / s(p_k) + (c_k - m(q)) / s(q)], m(v) = v . b_bar, s(v) = sqrt(v^T C v) + 1e-6 over ALL base images", label: "argmax_k s_k"}
+  CCP-QW: {definition: "Eq. 6: lambda m_K(q) - max_k [c_k - beta m_K(p_k)], lambda = 1, beta = 1/2 (selected on valA in round (vi))", label: "CCP-A's"}
+fusion:
+  H_fix: "Eq. 7: D + w u, w = sigma_A(D) / sigma_A(u) over all valA query scores (ddof 0); frozen per host, seed and shot"
+  K_fix: "D + w2 COSF, w2 = sigma_A(D) / sigma_A(COSF) (plain-cosine control)"
+  episode_standardization: "z(D) + z(u) per episode: uses the other queries of the episode (transductive); excluded from the reported test results"
+ablations: ["CCP-A/K=100", "CCP-A/K=300", "CCP-A/K=3000", "CCP-A/K=all", "CCP-A/class means, matched fraction", "CCP-A/class means, all",
+            "CCP-A/query only", "CCP-A/prototype only", "CCP-A/single view", CCP-S]

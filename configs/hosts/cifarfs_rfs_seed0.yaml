@@ -1,0 +1,19 @@
+# CIFAR-FS backbone of the final round (docs/preregistration/final_round.md, (A)): RFS ResNet-12, cross-entropy pre-training on the 64 base
+# classes, seed 0, last epoch (scripts/train/train_rfs_cifarfs.py). Training-free host (frozen encoder). Hashes are pinned in phase 1.
+name: cifarfs_rfs_seed0
+kind: rfs_frozen
+dataset: cifarfs
+view: eval32
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+model_args: {avg_pool: true, drop_rate: 0.1, dropblock_size: 2, num_classes: 64}   # RFS create_model, CIFAR-FS
+checkpoint:
+  path: "rfs/cifarfs/seed0/last.pth"   # under CCP_ASSETS/checkpoints (our checkpoint)
+  sha256: 69f7f2975bbac2c9ae299a3ec59bd0522f737b65a6d5012462741376889d31b9   # trained 2026-10-05, seed 0, 90 epochs, no divergence
+bank:
+  file: banks/cifarfs/cifarfs_rfs_seed0.npz
+  sha256: da648a6ebb35a93effc53e881c365bfdfb95526f4131c83406452d8b12166ff4   # rebuilt byte-identically (2026-10-05)
+  embed: full_split
+  base_images: "all 38,400"
+scores: [COS, COSF, CCP-A, CCP-S]

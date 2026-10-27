@@ -1,0 +1,27 @@
+# CIFAR-FS (Bertinetto, Henriques, Torr, Vedaldi, ICLR 2019): 64 / 16 / 20 CIFAR-100 classes, 600 images each, 32 x 32. Prepared by
+# scripts/prepare_data/cifarfs.py; docs/preregistration/final_round.md, (A).
+name: cifarfs
+archive:
+  file: raw/cifar-100-python.tar.gz   # under CCP_DATA
+  url: "https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz"
+  md5: eb9058c3a382ffc7106e4002c42a8d85   # published on https://www.cs.toronto.edu/~kriz/cifar.html (and torchvision datasets/cifar.py)
+  sha256: 85cd44d02ba6437773c5bbd22e183051d648de2e7d6b014e1ef29b855ba677a7
+  bytes: 169001437
+class_lists:
+  source: "r2d2 lists (Bertinetto et al.) as mirrored by learn2learn: https://zenodo.org/records/7978538/files/cifar100.zip (md5 fdb4405027b809aa4c059047f21ca3d1), cifar100/splits/bertinetto/{train,val,test}.txt; read by learn2learn @ db5cee3 learn2learn/vision/datasets/cifarfs.py. Same class sets as torchmeta @ d55d89e assets/cifar100/cifar-fs/*.json and as MetaOptNet's CIFAR_FS_val.pickle (val checked)."
+  train: {file: configs/datasets/cifarfs_split/train.txt, sha256: 08d41acf21db7203341442e96b2226276217e379bbf809af34849506af1a8c5e}
+  val: {file: configs/datasets/cifarfs_split/val.txt, sha256: e9ca1bb0404d6f804eb4df42923187eb07052a0c2f87820342b0da1f8c940278}
+  test: {file: configs/datasets/cifarfs_split/test.txt, sha256: 3720c9d858fa547dbf71ca80ede1f94a803279cfdedd3f7a9b9d3beb4ce5c020}
+sizes: {train: 38400, val: 9600, test: 12000}
+classes: {train: 64, val: 16, test: 20}
+global_index: "train 0-38399 | val 38400-47999 | test 48000-59999 (split order, class-list order, CIFAR-100 train then test images in archive order)"
+channel_order: RGB
+normalisation: {mean: [0.5071, 0.4867, 0.4408], std: [0.2675, 0.2565, 0.2761], scale: "divide by 255 first", source: "RFS dataset/cifar.py"}
+views:
+  eval32: {transform: "none: original 32 x 32 pixels", used_by: [cifarfs_rfs_seed0]}
+prepared_sha256:   # scripts/prepare_data/cifarfs.py (2026-10-05)
+  eval32_train: 9147af46a9b1bcbc0f4f9da5109c8f63b396f4a4b2742ea5235433af2761a339
+  eval32_val: 19603a98bf371918c9b9a78920b2bafe856056a9c283df203c37752c1761a293
+  eval32_test: 7515ad3f648865cc4901d7f5689f60f4f302c51463229feadc7688234cc0ff7c
+  index: 309cb9031629108bdfd8f61b162956302b775d482abfde3afeb0f98416f982b1
+manifests: [valA_fsor_5way_1shot, valA_fsor_5way_5shot, valB_fsor_5way_1shot, valB_fsor_5way_5shot, test_fsor_5way_1shot, test_fsor_5way_5shot]

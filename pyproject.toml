@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cohort-calibrated-prototypes"
+version = "2.0.0"
+description = "Cohort-calibrated prototypes (CCP-A) for few-shot open-set recognition: code, episode manifests and recorded results of the paper"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Isaac Adjei-Mensah" }, { name = "Adu A. Baffour" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.13",
+    "scikit-learn>=1.5",
+    "torch>=2.4",
+    "torchvision>=0.19",
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",
+    "pillow>=10.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff==0.16.9"]
+
+[project.urls]
+Repository = "https://github.com/adu-baffour/cohort-calibrated-prototypes"
+
+[tool.setuptools.packages.find]
+include = ["ccp*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "gpu: needs a CUDA GPU (skipped unless CCP_TEST_GPU=1)",
+    "data: needs recorded release assets, manifests or prepared data (skipped unless CCP_TEST_DATA=1)",
+    "old: differential test against the 1.5.0 package of the authors' earlier release repository (skipped if it is not available)",
+]
+
+[tool.ruff]
+line-length = 160
+target-version = "py310"
+extend-exclude = ["third_party", "release_assets", "results", "paper"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E731", "E702", "E501", "I001"]

@@ -1,0 +1,21 @@
+# Foundation round (docs/preregistration/foundation_round.md): DINOv2 ViT-B/14 (no registers), final-norm CLS token, 768-d; frozen, image encoder only (no text, no class names).
+# Role: primary. Dataset cub, stored view eval84, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py).
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: cub_dinov2_b14
+kind: dinov2_frozen
+arch: vitb14
+dataset: cub
+view: eval84
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/dinov2/dinov2_vitb14_pretrain.pth"   # under the CCP_CKPT third-party root
+  sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+  source: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth"
+bank:
+  file: banks/foundation/cub_dinov2_b14.npz
+  sha256: 588b7f412e8d562b687292df4d826a395c1e1a10d7c78c761c7d58f48db93277
+  embed: full_split
+  base_images: "the 100 training classes, 5,903 images"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

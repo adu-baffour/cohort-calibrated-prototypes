@@ -1,0 +1,61 @@
+{
+ "p2": {
+  "frozen_FEAT": {
+   "checkpoint_sha256": "48e681c65e0a8a28d24f586f963da1f8b9e8aff339201f7380365bdd0ecc5c88",
+   "view": "eval view",
+   "RGB": {
+    "classifier_top1": 92.36979166666667,
+    "nc_1shot": {
+     "acc": 85.80933546423913,
+     "ci95": 0.5274633464787214
+    }
+   },
+   "BGR": {
+    "classifier_top1": 71.671875,
+    "nc_1shot": {
+     "acc": 73.07600156664849,
+     "ci95": 0.6698384490327994
+    }
+   },
+   "bgr_minus_rgb": {
+    "classifier_top1": -20.69791666666667,
+    "nc_1shot": -12.73333389759064
+   },
+   "stop": false
+  },
+  "TANE_DNPG_pretrain": {
+   "checkpoint_sha256": "2bd34c4594b77faa3710bca3f363f54219754951e24bc353be0c1b41f3d22bbb",
+   "view": "whole view",
+   "RGB": {
+    "classifier_top1": 88.35677083333333,
+    "nc_1shot": {
+     "acc": 80.08800178170205,
+     "ci95": 0.6205863242555466
+    }
+   },
+   "BGR": {
+    "classifier_top1": 68.76041666666667,
+    "nc_1shot": {
+     "acc": 69.85333479940891,
+     "ci95": 0.6762926141787685
+    }
+   },
+   "bgr_minus_rgb": {
+    "classifier_top1": -19.596354166666657,
+    "nc_1shot": -10.234666982293135
+   },
+   "stop": false
+  },
+  "STOP": false,
+  "gpu_minutes": 0.3015802423159281,
+  "when": "2026-09-25 15:59:22"
+ },
+ "views": {
+  "eval_cache_n": 60000,
+  "eval_cache_has_test": true,
+  "eval_view_identical": 500,
+  "whole_view_identical": 500,
+  "n_checked": 500,
+  "when": "2026-09-25 15:59:26"
+ }
+}

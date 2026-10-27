@@ -1,0 +1,20 @@
+# Foundation round (docs/preregistration/foundation_round.md): CLIP ViT-B/16 (OpenAI), image encoder, projected 512-d embedding; frozen, image encoder only (no text, no class names).
+# Role: primary. Dataset tiered, stored view bgr84, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py).
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: tiered_clip_b16
+kind: clip_frozen
+dataset: tiered
+view: bgr84
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/clip/ViT-B-16.pt"   # under the CCP_CKPT third-party root
+  sha256: 5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f
+  source: "https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt"
+bank:
+  file: banks/foundation/tiered_clip_b16.npz
+  sha256: 48e656e3d0c5bbb24d02d32f54da0b2fae9734a311eb86dfb2e992f2ae82be02
+  embed: subset_only
+  base_images: "the registered RandomState(20260926) subset of 38,400 base images (stored BGR, read as RGB)"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

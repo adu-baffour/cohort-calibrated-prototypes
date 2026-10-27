@@ -1,0 +1,20 @@
+# Foundation round (docs/preregistration/foundation_round.md): CLIP ViT-B/16 (OpenAI), image encoder, projected 512-d embedding; frozen, image encoder only (no text, no class names).
+# Role: primary. Dataset mini, stored view eval84, read as RGB and upsampled on the GPU to 224 (ccp/hosts/vit_input.py).
+# Weight and bank sha256 are pinned in phase 1, before any image passes through the model.
+name: mini_clip_b16
+kind: clip_frozen
+dataset: mini
+view: eval84
+channel_order: RGB
+feature_dtype: fp32
+channels_last: false
+checkpoint:
+  path: "third_party/clip/ViT-B-16.pt"   # under the CCP_CKPT third-party root
+  sha256: 5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f
+  source: "https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt"
+bank:
+  file: banks/foundation/mini_clip_b16.npz
+  sha256: f1d5a301f2ff58d82ef879b6d58a62dc91e13244179ac77a43efb6c366b70a0f
+  embed: full_split
+  base_images: "all 38,400 base images"
+scores: [COS, COSF, CCP-A, CCP-QW, the nine training-free baselines]

@@ -1,0 +1,35 @@
+{
+ "weights": {
+  "clip_b16": {
+   "path": "third_party/clip/ViT-B-16.pt",
+   "url": "https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt",
+   "bytes": 350837078,
+   "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+   "url_embedded_sha256_matches": true
+  },
+  "dinov2_s14": {
+   "path": "third_party/dinov2/dinov2_vits14_pretrain.pth",
+   "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+   "bytes": 88283115,
+   "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+   "url_embedded_sha256_matches": null
+  },
+  "dinov2_b14": {
+   "path": "third_party/dinov2/dinov2_vitb14_pretrain.pth",
+   "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+   "bytes": 346378731,
+   "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+   "url_embedded_sha256_matches": null
+  },
+  "dinov2_l14": {
+   "path": "third_party/dinov2/dinov2_vitl14_pretrain.pth",
+   "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_pretrain.pth",
+   "bytes": 1217586395,
+   "sha256": "d5383ea8f4877b2472eb973e0fd72d557c7da5d3611bd527ceeb1d7162cbf428",
+   "url_embedded_sha256_matches": null
+  }
+ },
+ "root": "first CCP_CKPT root",
+ "when": "2026-10-06 10:20:23",
+ "git_head": "28ffbcba1b832a214c36ae4629c39c0f7f6454ea"
+}

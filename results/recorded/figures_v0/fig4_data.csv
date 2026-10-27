@@ -1,0 +1,16 @@
+shot,host,dataset,kind,host_test_auroc,test_gain,gain_ci95
+1,Frozen FEAT,mini,backbone + CCP-A,68.2701,2.6321,
+1,FRN (3 seeds),mini,backbone + CCP-A,69.5585,1.0716,
+1,TANE pre-trained†,mini,backbone + CCP-A,70.2097,2.7066,
+1,Frozen FEAT,tiered,backbone + CCP-A,73.9914,0.5649,
+1,TANE pre-trained†,tiered,backbone + CCP-A,74.0642,0.2807,
+1,SnaTCHer-F,mini,trained host + H_fix,69.8805,1.6707,0.2069
+1,DNPG (3 seeds),mini,trained host + H_fix,73.7203,0.5825,0.1349
+5,Frozen FEAT,mini,backbone + CCP-A,74.6449,4.237,
+5,FRN (3 seeds),mini,backbone + CCP-A,75.6162,2.2633,
+5,TANE pre-trained†,mini,backbone + CCP-A,76.744,4.6093,
+5,Frozen FEAT,tiered,backbone + CCP-A,82.3179,0.4764,
+5,TANE pre-trained†,tiered,backbone + CCP-A,81.8476,0.4709,
+5,SnaTCHer-F,mini,trained host + H_fix,77.2817,2.1022,0.1719
+5,DNPG (3 seeds),mini,trained host + H_fix,83.1236,0.7265,0.1203
+all,spearman_mini_10_points,,,,0.0061,p=0.9867

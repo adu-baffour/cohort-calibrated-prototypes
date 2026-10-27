@@ -1,0 +1,25 @@
+# FRN fine-tuned from frozen FEAT mini, seed 2 (our training; scripts/train/train_frn.py). best.pth selected on closed-set valA 5-shot.
+name: frn_mini_seed2
+kind: frn
+dataset: mini
+view: eval84
+channel_order: RGB
+feature_dtype: fp32   # stored precision of the raw GAP pair in the registered test path
+channels_last: true
+checkpoint:
+  path: "frn/mini/seed2/best.pth"
+  sha256: "4eb7ceba7071397b5a29fbc6db7db6200c81985f25f6821dccb62df9d6fc99b0"
+  source: "release asset (ours)"
+  license: "MIT (ours)"
+checkpoint_last:
+  path: "frn/mini/seed2/last.pth"
+  sha256: "7dc46096ff0e54c66387da9a3c1ea4c84f4045b1b264182ac3121211702e1a9b"
+  source: "release asset (ours)"
+  license: "MIT (ours)"
+  note: "last epoch (150), with optimiser state; not used by any paper row"
+bank:
+  file: banks/mini/frn_mini_seed2.npz
+  sha256: 6c353711b48ebdd4e9f38c404905f12258d139e20694d9d3b9fb235d85954f50
+  embed: full_split
+scores: [COS, COSF, CCP-A, CCP-S]
+recorded_path: research/fsor/fsor_final.py run_mini (MINI bundle part)

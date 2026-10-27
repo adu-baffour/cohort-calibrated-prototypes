@@ -1,0 +1,20 @@
+# Frozen FEAT ResNet-12 pre-training checkpoint (tiered); training-free host. Paper: Tables 3, 5 and 7; Figure 3.
+name: frozen_feat_tiered
+kind: feat_frozen
+dataset: tiered
+view: bgr84
+channel_order: BGR
+feature_dtype: fp16   # stored precision of the raw GAP pair in the registered test path
+channels_last: true
+checkpoint:
+  path: "third_party/feat/tiered/Res12-pre.pth"
+  sha256: "90bedb8ae0ad34946d2517a50d2636c0df52373fe5cc206d3a403516f5b51cf4"
+  source: "https://drive.google.com/file/d/1URMvC6vb0Xd-OGEfUe-p2yV9jRrp4yY- (FEAT README, pre-trained Res12, tieredImageNet)"
+  license: "link only"
+bank:
+  file: banks/tiered/frozen_feat_tiered.npz
+  sha256: b8ba22dc3dba516ee7c41b2f9faf1af29db079b92e6a4fb357230e8f4641711d
+  embed: full_split
+  base_images: "RandomState(20260926) subset of 38,400 of 448,695 (CCP-S over all 448,695)"
+scores: [COS, COSF, CCP-A, CCP-S]
+recorded_path: research/fsor/fsor_final.py run_tiered (TIERED bundle part, token fd048685b138b1f9)

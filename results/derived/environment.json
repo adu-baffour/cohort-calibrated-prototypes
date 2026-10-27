@@ -1,0 +1,44 @@
+{
+ "captured": "2026-10-07",
+ "os": "Windows 11 (build 10.0.26200)",
+ "machine": "AMD64",
+ "python": "3.10.11",
+ "torch": "2.14.0+cu130",
+ "torch_cuda": "13.0",
+ "cudnn": 92400,
+ "gpu_driver_memory": "NVIDIA GeForce RTX 4090, 616.92, 24564 MiB",
+ "packages": {
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.7.2",
+  "torch": "2.14.0+cu130",
+  "torchvision": "0.29.0+cu130",
+  "matplotlib": "3.10.9",
+  "pyyaml": "6.0.3",
+  "pillow": "12.3.0",
+  "tqdm": "4.70.1",
+  "pytest": "9.1.1",
+  "ftfy": "6.3.1",
+  "regex": "2026.9.29",
+  "wcwidth": "0.9.2"
+ },
+ "research_env": {
+  "python": "3.10.11",
+  "torch": "2.14.0+cu130",
+  "torch_cuda": "13.0",
+  "cudnn": "92400",
+  "numpy": "2.2.6"
+ },
+ "release_sha256": {
+  "ccp-fsor-v1.0.0-checkpoints-frn_mini_seed0.tar": "4e5008d447f686aaba66344022646e1b28eb41a3c7b87c54feeee1c1c6d16648",
+  "ccp-fsor-v1.0.0-checkpoints-frn_mini_seed1.tar": "e7ec6a2d830a1a29107e1db13fb8d3dfa9194b6d46b1d7630ebd85db2b55be67",
+  "ccp-fsor-v1.0.0-checkpoints-frn_mini_seed2.tar": "083ee5dc8433549fc411fe951b44ea19ea7cf875ba177243b3507c715b4cfe10",
+  "ccp-fsor-v1.0.0-checkpoints-dnpg_mini_seed0.tar": "acef6e350ffbca9673194946cf2924836450889458ea6a14cb600cbe9502168e",
+  "ccp-fsor-v1.0.0-checkpoints-dnpg_mini_seed1.tar": "6df62c203043dce2c92c66382da4664ddcf6a5e53aa93f27e631dbf1dd3a1f1a",
+  "ccp-fsor-v1.0.0-checkpoints-dnpg_mini_seed2.tar": "be4fef54cd55fc9e21695d0a25abcd0ece451b6d8eb6af671632bdfca4d7cbf6",
+  "ccp-fsor-v1.0.0-checkpoints-dnpg_tiered_seed0.tar": "c8bc9a57a2cab3b08b8b0e720e873f80b3fbd5f2082ae97779a4f98aa027ed5a",
+  "ccp-fsor-v1.4.0-recorded.tar": "80045b79bcb9d66fc2e06c9031382e07932cbdbcc631757876908b2b681e2428",
+  "MANIFEST.txt": "8029bee343a15ae2faf13fae48f86922be2c7939d570ff65d625d501100dfc28",
+  "ccp-fsor-v1.3.0-recorded.tar": "b7939544b0c65da9c7e0f8661db7ad4e034949a71e727c4a26262b183c52fc96"
+ }
+}
