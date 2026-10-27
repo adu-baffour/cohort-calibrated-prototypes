@@ -175,7 +175,7 @@ def add_check(path: str, source: str):
     if CHECKS_SECTION in txt:
         i = txt.index(CHECKS_SECTION)
         j = txt.find("\n## ", i + 1)
-        txt = txt[:i] + "\n".join(checks_block(sorted(rows))) + txt[j + 1:]
+        txt = txt[:i] + "\n".join(checks_block(sorted(rows))) + "\n" + txt[j + 1:]
     else:
         i = txt.index("## Line endings")
         txt = txt[:i] + "\n".join(checks_block(sorted(rows))) + "\n" + txt[i:]
