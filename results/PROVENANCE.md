@@ -249,8 +249,7 @@ Not copied from release 1.5.0: validation checks run for this release by its own
 
 | File | sha256 | Source |
 |---|---|---|
-| `results/checks/snatcher_fidelity_end_to_end.json` | `2071f709406771d2cbf09859ca8281cf1da17f3c4d9bc306324f5c0454861339` | `2.0.0 check: python scripts/fidelity/snatcher_fidelity.py --record (GPU, validation; 2026-10-26)` |
-
+| `results/checks/snatcher_fidelity_end_to_end.json` | `0236018684c169b5aff5ef44864c419d11b02dbcaf0b30a3503cc52027551252` | `2.0.0 check: python scripts/fidelity/snatcher_fidelity.py --record (GPU, validation; at commit 900943e, 2026-10-27)` |
 ## Line endings
 
 The source is the committed blob (the file as published in release 1.5.0). For the files below, the Windows working tree of the source held CRLF line endings that git normalised to LF on commit; the content is otherwise identical. No registration document, bundle or marker records either sha256.

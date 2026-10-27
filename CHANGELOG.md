@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (2026-10-26)
+## 2.0.0 (2026-10-27)
 
 First release of this repository. It replaces release 1.5.0 of the authors' earlier release repository (private), the code release of the
 submitted version, and follows the final paper: every method, setting, table, figure and number is found under the paper's name.

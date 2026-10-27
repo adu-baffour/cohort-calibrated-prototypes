@@ -10,7 +10,7 @@ identifiers:
   - type: url
     value: "https://github.com/adu-baffour/cohort-calibrated-prototypes/releases/tag/v2.0.0"
     description: "GitHub release v2.0.0 (the same release assets)"
-date-released: "2026-10-26"
+date-released: "2026-10-27"
 license: MIT
 repository-code: "https://github.com/adu-baffour/cohort-calibrated-prototypes"
 url: "https://github.com/adu-baffour/cohort-calibrated-prototypes"

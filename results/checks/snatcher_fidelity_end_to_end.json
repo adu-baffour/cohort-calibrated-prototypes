@@ -63,11 +63,11 @@
  },
  "script": "scripts/fidelity/snatcher_fidelity.py",
  "script_sha256": "b6cf635a5aaee6aaa61218b1322cfe9767b32975109b7faafe6c5ac30f795cff",
- "git_head": "67a54cb6c21a7ced94248d038ed1d5c5de180e13",
- "uncommitted_code_changes": true,
+ "git_head": "900943e81889488eaf3c09831df0bb368aee1513",
+ "uncommitted_code_changes": false,
  "third_party": "SnaTCHer @ 335c42469f0a7ad72c5c3480c8effc8c293823e0",
  "torch": "2.14.0+cu130",
  "cuda": "13.0",
  "gpu": "NVIDIA GeForce RTX 4090",
- "when": "2026-10-26 14:32:10"
+ "when": "2026-10-27 12:30:14"
 }
