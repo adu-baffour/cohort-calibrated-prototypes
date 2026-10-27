@@ -4,14 +4,28 @@ Three tiers. Tier 1 runs on a CPU from the recorded results and is what every re
 checkpoints and a GPU. All runtimes were measured on the machine of the README (Windows 11, Python 3.10.11, PyTorch 2.14 with CUDA 13.0,
 RTX 4090 24 GB, Intel Core i9, 128 GB RAM).
 
+## Installation
+
+Python 3.10 (the recorded results used 3.10.11); the versions of every package are pinned in `requirements.txt`.
+
+```bash
+git clone https://github.com/adu-baffour/cohort-calibrated-prototypes && cd cohort-calibrated-prototypes
+python -m venv .venv && source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt -r requirements-dev.txt && pip install -e . --no-deps
+```
+
+From PyPI this installs the CPU build of torch, which is all tier 1 needs; for a GPU (tiers 2 and 3), install the CUDA build of the
+pinned torch and torchvision versions (pytorch.org). On Windows, clone into a short path (for example `C:\ccp`) or enable long-path
+support: otherwise pip can fail inside sympy, whose test files exceed the 260-character path limit.
+
 ## Tests
 
-| Mode | Command | Result (2026-10-26) |
+| Mode | Command | Result (2026-10-27) |
 |---|---|---|
-| default (a fresh clone: no data, assets, paper sources or third-party clones) | `pytest -q` | 363 passed, 65 skipped; 16 s |
-| default, with the paper sources, Figure 1 and the SnaTCHer, DNPG, CLIP and DINOv2 clones present | `pytest -q` | 371 passed, 57 skipped; 21 s |
-| with data and release assets | `CCP_TEST_DATA=1 pytest -q` | 388 passed, 40 skipped; 2 min 12 s |
-| also against release 1.5.0 | `CCP_OLD_PKG=<checkout of the earlier release repository> CCP_TEST_DATA=1 pytest -q` | 425 passed, 3 skipped; 2 min 18 s |
+| default (a fresh clone: no data, assets, paper sources or third-party clones) | `pytest -q` | 366 passed, 64 skipped; 22 s |
+| default, with the paper sources, Figure 1 and the SnaTCHer, DNPG, CLIP and DINOv2 clones present | `pytest -q` | 373 passed, 57 skipped; 21 s |
+| with data and release assets | `CCP_TEST_DATA=1 pytest -q` | 390 passed, 40 skipped; 2 min 13 s |
+| also against release 1.5.0 | `CCP_OLD_PKG=<checkout of the earlier release repository> CCP_TEST_DATA=1 pytest -q` | 427 passed, 3 skipped; 2 min 21 s |
 
 The 3 remaining skips need the RFS clone (`python third_party/clone.py RFS`: 1 test) or a GPU (`CCP_TEST_GPU=1`: 2 tests); without the
 SnaTCHer, DNPG, CLIP and DINOv2 clones, the tests that import them are skipped too. DINOv2's tiny-model test warns that xFormers is not
@@ -25,13 +39,20 @@ array).
 
 ## Tier 1: from the recorded results (CPU, about 2 minutes)
 
-Needs this repository and the release assets: `cohort-calibrated-prototypes-2.0.0-recorded.tar`, from the GitHub release v2.0.0
-(https://github.com/adu-baffour/cohort-calibrated-prototypes/releases/tag/v2.0.0) or the Zenodo record (https://doi.org/10.5281/zenodo.23695548), checked with `sha256sum -c SHA256SUMS` and unpacked at `CCP_ASSETS`. The checkpoints of tier 2
-come from the same two places (docs/checkpoints.md). The steps that
-compare with the paper's own sources need them extracted from the pinned zip (`python scripts/paper_pin.py extract`; configs/paper.yaml);
-without them, those steps report "skipped".
+Needs the installation above and the release assets. Download the eight archives with `MANIFEST.txt` and `SHA256SUMS` from the GitHub
+release v2.0.0 (https://github.com/adu-baffour/cohort-calibrated-prototypes/releases/tag/v2.0.0) or the Zenodo record
+(https://doi.org/10.5281/zenodo.23695548), check them with `sha256sum -c SHA256SUMS`, and unpack all eight into one folder
+(`tar -xf <archive> -C <folder>`; they hold `checkpoints/` and `recorded/`). Set `CCP_ASSETS` to that folder; without it, `CCP_ASSETS`
+defaults to `<repo>/release_assets` (git-ignored). Tier 1 reads only the recorded archive; the checkpoints are for tier 2
+(docs/checkpoints.md).
 
-`python scripts/reproduce.py all --tier 1` runs every step below and ends with "tier 1: all OK" (measured: 105 s). One step:
+The paper-text steps (`numbers`, `paper-pins`) compare with the authors' copy of the paper's LaTeX sources, which is not distributed;
+without it tier 1 reports them as skipped. The `tables` step still checks all eight tables against `paper_assets/tables/` and reports
+"OK against paper_assets/; paper-source comparison skipped". With the paper sources present (`python scripts/paper_pin.py extract`, from
+the zip pinned in configs/paper.yaml), every step runs.
+
+`python scripts/reproduce.py all --tier 1` runs every step below. Without the paper sources it ends with "tier 1: all OK (skipped: numbers,
+paper-pins: paper sources not extracted)"; with them, with "tier 1: all OK" (measured: 105 s). One step:
 `python scripts/reproduce.py <step> --tier 1`.
 
 | Step | What it regenerates and checks | Command | Inputs |

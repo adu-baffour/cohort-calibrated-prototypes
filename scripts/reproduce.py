@@ -57,17 +57,31 @@ def run_cmd(args) -> int:
     return subprocess.run([PY, *args], cwd=REPO).returncode
 
 
-def tier1(step: str) -> str:
-    cmds, what = TIER1[step]
-    print(f"\n== {step}: {what}", flush=True)
-    rcs = []
-    for c in cmds:
-        rcs.append(run_cmd(c))
+# a step that still checks something when the paper sources are absent: its status then says what was checked
+PARTIAL = {"tables": "OK against paper_assets/; paper-source comparison skipped"}
+
+
+def status(step: str, rcs: list[int]) -> str:
+    """'OK', 'FAILED', 'skipped' (needs the paper sources) or the PARTIAL text, from the exit codes of the step's commands."""
     if all(rc == 0 for rc in rcs):
         return "OK"
     if all(rc in (0, SKIPPED) for rc in rcs):
-        return "skipped"
+        return PARTIAL.get(step, "skipped")
     return "FAILED"
+
+
+def summary(res: dict[str, str]) -> str:
+    failed = [s for s, r in res.items() if r == "FAILED"]
+    skipped = [s for s, r in res.items() if r == "skipped"]
+    if failed:
+        return "tier 1: FAILED: " + ", ".join(failed)
+    return "tier 1: all OK" + (f" (skipped: {', '.join(skipped)}: paper sources not extracted)" if skipped else "")
+
+
+def tier1(step: str) -> str:
+    cmds, what = TIER1[step]
+    print(f"\n== {step}: {what}", flush=True)
+    return status(step, [run_cmd(c) for c in cmds])
 
 
 def main():
@@ -86,12 +100,9 @@ def main():
         steps = list(TIER1) if a.step == "all" else [a.step]
         t0 = time.time()
         res = {s: tier1(s) for s in steps}
-        failed = [s for s, r in res.items() if r == "FAILED"]
-        skipped = [s for s, r in res.items() if r == "skipped"]
         print(f"\n{', '.join(f'{s}: {r}' for s, r in res.items())}  ({time.time() - t0:.0f} s)")
-        print("tier 1:", "FAILED: " + ", ".join(failed) if failed else ("all OK" + (f" (skipped: {', '.join(skipped)}: paper sources not "
-                                                                                   "extracted)" if skipped else "")))
-        sys.exit(1 if failed else 0)
+        print(summary(res))
+        sys.exit(1 if any(r == "FAILED" for r in res.values()) else 0)
     if a.tier == 2:
         if a.step == "test-reevaluation":
             if not a.allow_test or not a.host:
