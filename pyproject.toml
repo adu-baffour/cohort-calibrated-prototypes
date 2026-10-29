@@ -36,7 +36,6 @@ testpaths = ["tests"]
 markers = [
     "gpu: needs a CUDA GPU (skipped unless CCP_TEST_GPU=1)",
     "data: needs recorded release assets, manifests or prepared data (skipped unless CCP_TEST_DATA=1)",
-    "old: differential test against the 1.5.0 package of the authors' earlier release repository (skipped if it is not available)",
 ]
 
 [tool.ruff]

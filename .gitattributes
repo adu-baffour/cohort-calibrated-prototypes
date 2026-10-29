@@ -14,5 +14,5 @@ bundles/** -text
 manifests/** -text
 docs/preregistration/** -text
 docs/prereg_variants.md -text
-figures/src/** -text
+configs/datasets/mini_class_names.tsv -text
 third_party/fonts/** -text

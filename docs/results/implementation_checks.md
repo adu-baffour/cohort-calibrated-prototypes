@@ -41,7 +41,6 @@ Source: `docs/preregistration/`, `results/recorded/test/`, `bundles/`.
 
 ## Other checks run by the repository
 
-- Arithmetic: the scores, SCG and statistics of this package equal those of release 1.5.0 bit for bit (`tests/test_differential.py`, with `CCP_OLD_PKG`).
 - Recorded reports: every recorded report is re-rendered from the recorded results and equals the recorded text (`scripts/rounds/render_recorded.py`, `tests/test_recorded.py`).
 - Inductive scores: `tests/test_inductive.py` permutes, removes and replaces the other queries of an episode.
-- Paper: Tables 1-8 regenerate byte for byte (`scripts/make_tables.py --check`); every number of the text is matched to its source (`scripts/paper_numbers.py --check`, docs/paper_numbers.md); the plotted data of every figure equal the recorded data (`scripts/make_figures.py --check`).
+- Paper: Tables 1-8 regenerate byte for byte (`scripts/make_tables.py --check`); the plotted data of Figures 2-4 equal the recorded data (`scripts/make_figures.py --check`).

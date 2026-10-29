@@ -3,7 +3,7 @@
     python scripts/derive_paired.py            # -> results/generated/derived/paired_derived.json
     python scripts/derive_paired.py --check    # exit 1 unless a fresh computation equals results/derived/paired_derived.json byte for byte
 
-results/derived/paired_derived.json is the copy that Tables 4-6 and docs/paper_numbers.md read (verbatim from release 1.5.0, listed in
+results/derived/paired_derived.json is the copy that Tables 4-6 read (verbatim from release 1.5.0, listed in
 results/PROVENANCE.md); this script shows how it was computed and checks it. No test manifest, image, feature or score is read: the inputs
 are the per-episode metric files written by the single test passes of rounds (vii) and (viii) (ccp/assets.py). No new statistical test:
 each entry is the mean and 95% CI (1.96 std / sqrt(n), ddof 0, ccp.metrics.ci95) of a per-episode difference and the fraction of episodes

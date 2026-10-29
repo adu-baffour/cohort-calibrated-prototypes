@@ -5,7 +5,7 @@
 
 docs/results/ holds what the paper summarizes: per-seed results, OSCR and FPR95 of every recorded row, the training-free baselines (selected
 settings and every paired difference), host checkpoints and checksums, implementation and fidelity checks, validation decisions, and the
-ablations and method variants. docs/results/figures/ holds the repository figures (scripts/make_figures.py). Every number is read from a
+ablations and method variants. Every number is read from a
 recorded file through ccp.recorded (sha256-checked, paper names); the source of each table is named under it. No per-episode file is read.
 """
 from __future__ import annotations
@@ -176,7 +176,7 @@ def baselines() -> str:
         by = {family(v): v for v in ch.values()}
         assert all(setting(by[f]) == "--" for f in ("query cohort term", "CL2N", "ZN", "TEEN"))
         rows.append([ds, h] + [setting(by[c]) for c in cols])
-    a = section("Selected settings (former Supplementary Table S9)", "Chosen on valA by mean AUROC over both shots (DNPG: and seeds 0-2), before "
+    a = section("Selected settings", "Chosen on valA by mean AUROC over both shots (DNPG: and seeds 0-2), before "
                 "any test pass; the query cohort term, CL2N, ZN, TEEN and episode CSLS have no setting. Transfer to CUB keeps the settings "
                 "selected on mini-ImageNet (checked against the recorded round (vii) rows).",
                 md_table(["Dataset", "Host", *cols], rows), f"`{BSEL}`, `{CSEL}`, `{FSEL}` (`chosen`)")
@@ -275,14 +275,11 @@ def checks() -> str:
                          [[r["round"], f"`{r['registration_document']}`", f"`{r['block_token']}`", f"`{r['done_token']}`"] for r in rr]),
                 "`docs/preregistration/`, `results/recorded/test/`, `bundles/`")
     c = ["## Other checks run by the repository", "",
-         "- Arithmetic: the scores, SCG and statistics of this package equal those of release 1.5.0 bit for bit (`tests/test_differential.py`, "
-         "with `CCP_OLD_PKG`).",
          "- Recorded reports: every recorded report is re-rendered from the recorded results and equals the recorded text "
          "(`scripts/rounds/render_recorded.py`, `tests/test_recorded.py`).",
          "- Inductive scores: `tests/test_inductive.py` permutes, removes and replaces the other queries of an episode.",
-         "- Paper: Tables 1-8 regenerate byte for byte (`scripts/make_tables.py --check`); every number of the text is matched to its source "
-         "(`scripts/paper_numbers.py --check`, docs/paper_numbers.md); the plotted data of every figure equal the recorded data "
-         "(`scripts/make_figures.py --check`)."]
+         "- Paper: Tables 1-8 regenerate byte for byte (`scripts/make_tables.py --check`); the plotted data of Figures 2-4 equal the "
+         "recorded data (`scripts/make_figures.py --check`)."]
     return doc("Implementation and fidelity checks", "", a, b, c)
 
 
@@ -459,15 +456,14 @@ from the recorded results (results/PROVENANCE.md).
 |---|---|
 | [seeds.md](seeds.md) | Per-seed results of FRN and DNPG (mini-ImageNet, CUB) |
 | [oscr_fpr95.md](oscr_fpr95.md) | OSCR and FPR95 of every recorded row of rounds (vii) and (viii) |
-| [baselines.md](baselines.md) | Selected baseline settings (former Supplementary Table S9), every paired difference with its CI, round (v) rows |
+| [baselines.md](baselines.md) | Selected baseline settings, every paired difference with its CI, round (v) rows |
 | [checkpoints.md](checkpoints.md) | Every host checkpoint with its sha256 and source |
 | [implementation_checks.md](implementation_checks.md) | Fidelity checks of the host implementations, registration tokens, other checks |
 | [validation_decisions.md](validation_decisions.md) | The registered validation criteria and their outcomes before each round |
 | [ablations_variants.md](ablations_variants.md) | Ablations (valA and valB), method variants (valB, valC, test), bank geometry |
-| [figures/](figures/README.md) | Repository figures (former Supplementary Figures S1-S3) |
 
-The registration log is [docs/registration_log.md](../registration_log.md); every number of the paper's text is matched to its source in
-[docs/paper_numbers.md](../paper_numbers.md).
+The registration log is [docs/registration_log.md](../registration_log.md); the names used in the recorded files are mapped to the
+paper's names in [docs/naming.md](../naming.md).
 """
 
 

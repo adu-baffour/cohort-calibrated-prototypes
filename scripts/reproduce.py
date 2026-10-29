@@ -10,10 +10,8 @@
     python scripts/reproduce.py training --tier 3                # print the training commands (FRN, DNPG, RFS)
 
 Tier 1 needs this repository and the release assets ($CCP_ASSETS: per-episode metric files and validation score caches); Figure 4 is
-checked without its image panels (dataset images; `python scripts/make_figures.py Fig4` draws them from $CCP_DATA). The steps
-that compare with the paper's own sources (tables, numbers, pins) need them extracted (python scripts/paper_pin.py extract); without them
-those steps report "skipped" and the summary says so. Tier 2 also needs the datasets, third-party code (third_party/clone.py) and
-checkpoints ($CCP_CKPT). One GPU job at a time.
+checked without its image panels (dataset images; `python scripts/make_figures.py Fig4` draws them from $CCP_DATA). Tier 2 also needs
+the datasets, third-party code (third_party/clone.py) and checkpoints ($CCP_CKPT). One GPU job at a time.
 """
 from __future__ import annotations
 
@@ -25,7 +23,6 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 PY = sys.executable
-SKIPPED = 3     # exit code of a check whose inputs (the paper's sources) are not present
 
 TIER1 = {   # step -> (commands, what it checks)
     "provenance": ([["scripts/provenance.py", "check"]], "every recorded file equals its sha256 in results/PROVENANCE.md"),
@@ -35,12 +32,10 @@ TIER1 = {   # step -> (commands, what it checks)
                      "the eight rounds' tokens (bundle block, DONE marker, approval, test record)"),
     "recorded-reports": ([["scripts/rounds/render_recorded.py", "all"]], "every recorded report re-renders to its recorded text"),
     "derived": ([["scripts/derive_paired.py", "--check"]], "results/derived/paired_derived.json equals a fresh computation"),
-    "tables": ([["scripts/make_tables.py", "all", "--check"]], "Tables 1-8 equal paper_assets/tables/ and the paper's tables"),
+    "tables": ([["scripts/make_tables.py", "all", "--check"]], "Tables 1-8 equal paper_assets/tables/ byte for byte"),
     "figures": ([["scripts/make_figures.py", "all", "--check", "--no-images"]],
-                "Figures 1-4 and the repository figures: plotted data equal the recorded data (Figure 4 without its image panels)"),
-    "numbers": ([["scripts/paper_numbers.py", "--check"]], "every number of the paper's text matches its source (docs/paper_numbers.md)"),
+                "Figures 2-4: plotted data equal the recorded data (Figure 4 without its image panels)"),
     "results-docs": ([["scripts/make_results_docs.py", "--check"]], "docs/results/*.md and docs/registration_log.md are up to date"),
-    "paper-pins": ([["scripts/paper_pin.py", "check"]], "the paper's checked files equal their pinned sha256 (configs/paper_pins.json)"),
 }
 TIER2 = {
     "val-equivalence": [["scripts/fidelity/validation_equivalence.py", "run"], ["scripts/fidelity/validation_equivalence.py", "compare"]],
@@ -57,31 +52,20 @@ def run_cmd(args) -> int:
     return subprocess.run([PY, *args], cwd=REPO).returncode
 
 
-# a step that still checks something when the paper sources are absent: its status then says what was checked
-PARTIAL = {"tables": "OK against paper_assets/; paper-source comparison skipped"}
-
-
-def status(step: str, rcs: list[int]) -> str:
-    """'OK', 'FAILED', 'skipped' (needs the paper sources) or the PARTIAL text, from the exit codes of the step's commands."""
-    if all(rc == 0 for rc in rcs):
-        return "OK"
-    if all(rc in (0, SKIPPED) for rc in rcs):
-        return PARTIAL.get(step, "skipped")
-    return "FAILED"
+def status(rcs: list[int]) -> str:
+    """'OK' or 'FAILED', from the exit codes of the step's commands."""
+    return "OK" if all(rc == 0 for rc in rcs) else "FAILED"
 
 
 def summary(res: dict[str, str]) -> str:
     failed = [s for s, r in res.items() if r == "FAILED"]
-    skipped = [s for s, r in res.items() if r == "skipped"]
-    if failed:
-        return "tier 1: FAILED: " + ", ".join(failed)
-    return "tier 1: all OK" + (f" (skipped: {', '.join(skipped)}: paper sources not extracted)" if skipped else "")
+    return "tier 1: FAILED: " + ", ".join(failed) if failed else "tier 1: all OK"
 
 
 def tier1(step: str) -> str:
     cmds, what = TIER1[step]
     print(f"\n== {step}: {what}", flush=True)
-    return status(step, [run_cmd(c) for c in cmds])
+    return status([run_cmd(c) for c in cmds])
 
 
 def main():

@@ -1,4 +1,4 @@
-"""Shared figure style (Neurocomputing / Elsevier cas-dc) for every rendered figure (Figures 2-4 and the repository figures).
+"""Shared figure style (Neurocomputing / Elsevier cas-dc) for every rendered figure (Figures 2-4).
 
 Font: Liberation Sans 2.1.5 (SIL OFL 1.1), vendored in third_party/fonts/liberation-sans-2.1.5/ and registered with matplotlib at setup();
 Arial (metric-compatible) is the fallback if the files are missing. Mathtext uses the same family. Text is at least MIN_PT = 7 pt everywhere

@@ -1,4 +1,4 @@
-# the paper sources (extracted from the pinned zip; see configs/paper.yaml); not redistributed
+# the authors' local copies of the paper; not part of the repository
 /paper/
 /paper_final/
 # release assets, data and checkpoints never enter git (see docs/checkpoints.md)
@@ -22,8 +22,6 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .venv/
-# figures that contain dataset images (mini-ImageNet): generated or kept locally, never redistributed (scripts/release_scan.py)
+# figures that contain dataset images (mini-ImageNet): generated or kept locally, never redistributed
 /paper_assets/figures/fig1_method.pdf
 /paper_assets/figures/fig4_examples.pdf
-/figures/src/Figure1_CCP-A_overview.pdf
-/figures/src/Figure1_CCP-A_overview.drawio

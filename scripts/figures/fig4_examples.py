@@ -10,7 +10,7 @@ SELECTION RULE (fixed before any image was looked at):
   The selection is (episode, query) = (375, 99), (156, 103), (385, 79), (258, 9), (459, 61); it is recomputed and must equal SELECTION.
 Each row: the query (thin border: blue = known, orange = unknown), the support image of its nearest class by raw cosine, its scores (raw max
 cosine, m_K(q), both percentiles), and its 5 nearest base images in the cohort bank with their cosines; ImageNet class names (WordNet,
-first lemma; figures/src/mini_class_names.tsv) in small gray text. Inputs: the validation score cache (scores, nearest neighbors), the valB
+first lemma; configs/datasets/mini_class_names.tsv) in small gray text. Inputs: the validation score cache (scores, nearest neighbors), the valB
 manifest and, for the image panels only, the prepared mini-ImageNet eval84 arrays ($CCP_DATA; images are not redistributed).
 """
 from __future__ import annotations
@@ -63,7 +63,7 @@ def select(C):
 
 
 def class_names():
-    rows = [line.split("\t") for line in (ROOT / "figures" / "src" / "mini_class_names.tsv").read_text(encoding="utf-8").splitlines()
+    rows = [line.split("\t") for line in (ROOT / "configs" / "datasets" / "mini_class_names.tsv").read_text(encoding="utf-8").splitlines()
             if line and not line.startswith("#")][1:]
     return {int(r[0]): r[2].split(",")[0].strip() for r in rows}
 
@@ -129,7 +129,7 @@ def main(out: Path, draw_images: bool = True):
 
 
 def write_data(data, names):
-    """The plotted data (results/recorded/figures_v0/fig3_data.csv). Class names come from figures/src/mini_class_names.tsv and the
+    """The plotted data (results/recorded/figures_v0/fig3_data.csv). Class names come from configs/datasets/mini_class_names.tsv and the
     recorded labels of the split (labels only, no images); without the prepared labels they are taken from the recorded data file."""
     if names is None:
         try:

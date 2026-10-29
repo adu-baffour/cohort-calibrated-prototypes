@@ -1,7 +1,7 @@
 # Reproducing the paper
 
 Three tiers. Tier 1 runs on a CPU from the recorded results and is what every reader can run; tiers 2 and 3 need the datasets,
-checkpoints and a GPU. All runtimes were measured on the machine of the README (Windows 11, Python 3.10.11, PyTorch 2.14 with CUDA 13.0,
+checkpoints and a GPU. All runtimes were measured on one workstation (Windows 11, Python 3.10.11, PyTorch 2.14 with CUDA 13.0,
 RTX 4090 24 GB, Intel Core i9, 128 GB RAM).
 
 ## Installation
@@ -20,22 +20,18 @@ support: otherwise pip can fail inside sympy, whose test files exceed the 260-ch
 
 ## Tests
 
-| Mode | Command | Result (2026-10-27) |
+| Mode | Command | Result (2026-10-29) |
 |---|---|---|
-| default (a fresh clone: no data, assets, paper sources or third-party clones) | `pytest -q` | 366 passed, 64 skipped; 22 s |
-| default, with the paper sources, Figure 1 and the SnaTCHer, DNPG, CLIP and DINOv2 clones present | `pytest -q` | 373 passed, 57 skipped; 21 s |
-| with data and release assets | `CCP_TEST_DATA=1 pytest -q` | 390 passed, 40 skipped; 2 min 13 s |
-| also against release 1.5.0 | `CCP_OLD_PKG=<checkout of the earlier release repository> CCP_TEST_DATA=1 pytest -q` | 427 passed, 3 skipped; 2 min 21 s |
+| default (a fresh clone: no data, assets or third-party clones) | `pytest -q` | 362 passed, 19 skipped; 14 s |
+| default, with the SnaTCHer, DNPG, CLIP and DINOv2 clones present | `pytest -q` | 366 passed, 15 skipped; 15 s |
+| with data and release assets | `CCP_TEST_DATA=1 pytest -q` | 378 passed, 3 skipped; 2 min 2 s |
 
 The 3 remaining skips need the RFS clone (`python third_party/clone.py RFS`: 1 test) or a GPU (`CCP_TEST_GPU=1`: 2 tests); without the
 SnaTCHer, DNPG, CLIP and DINOv2 clones, the tests that import them are skipped too. DINOv2's tiny-model test warns that xFormers is not
 installed (not needed). Tests marked `data` read recorded files, release assets and manifests only. The manifest tests regenerate every
-manifest from its recorded seed and read class labels and manifests only (no image, feature or score). The differential tests run the
-1.5.0 package of the authors' earlier release repository (private) in a subprocess and require bit-identical results.
+manifest from its recorded seed and read class labels and manifests only (no image, feature or score).
 
-Lint: `ruff check ccp scripts tests third_party/clone.py` (ruff 0.16.9). Before a push: `python scripts/release_scan.py`; before an
-upload of the release archives: `python scripts/release_scan.py --assets` (every archive member: no image file and no image-shaped uint8
-array).
+Lint: `ruff check ccp scripts tests third_party/clone.py` (ruff 0.16.9).
 
 ## Tier 1: from the recorded results (CPU, about 2 minutes)
 
@@ -46,13 +42,7 @@ release v2.0.0 (https://github.com/adu-baffour/cohort-calibrated-prototypes/rele
 defaults to `<repo>/release_assets` (git-ignored). Tier 1 reads only the recorded archive; the checkpoints are for tier 2
 (docs/checkpoints.md).
 
-The paper-text steps (`numbers`, `paper-pins`) compare with the authors' copy of the paper's LaTeX sources, which is not distributed;
-without it tier 1 reports them as skipped. The `tables` step still checks all eight tables against `paper_assets/tables/` and reports
-"OK against paper_assets/; paper-source comparison skipped". With the paper sources present (`python scripts/paper_pin.py extract`, from
-the zip pinned in configs/paper.yaml), every step runs.
-
-`python scripts/reproduce.py all --tier 1` runs every step below. Without the paper sources it ends with "tier 1: all OK (skipped: numbers,
-paper-pins: paper sources not extracted)"; with them, with "tier 1: all OK" (measured: 105 s). One step:
+`python scripts/reproduce.py all --tier 1` runs every step below and ends with "tier 1: all OK" (measured: 106 s). One step:
 `python scripts/reproduce.py <step> --tier 1`.
 
 | Step | What it regenerates and checks | Command | Inputs |
@@ -61,14 +51,13 @@ paper-pins: paper sources not extracted)"; with them, with "tier 1: all OK" (mea
 | `registration` | the eight rounds' tokens: bundle block, DONE marker, approval file and test record agree | `ccp.registration.check()` | docs/preregistration/, results/, bundles/ |
 | `recorded-reports` | every recorded report (25: rounds (i)-(viii)) re-renders from the recorded results to its recorded text, figures included | `python scripts/rounds/render_recorded.py all` | recorded results; per-episode test metrics (assets) |
 | `derived` | results/derived/paired_derived.json equals a fresh computation | `python scripts/derive_paired.py --check` | per-episode test metrics (assets) |
-| `tables` | Tables 1-8 equal paper_assets/tables/ and the paper's tables byte for byte (one header line aside), ranking marks included | `python scripts/make_tables.py all --check` | recorded results |
-| `figures` | the plotted data of Figures 2-4 and the repository figures equal the recorded data (results/recorded/figures_v0/; Figure 3: the data of the paper's figure); fonts embedded, text at least 7 pt; Figure 4 without its image panels; Figure 1 equals its pinned sha256 when present | `python scripts/make_figures.py all --check --no-images` | recorded results; validation score cache (assets) |
-| `numbers` | every number of the paper's text matches its source (docs/paper_numbers.md) | `python scripts/paper_numbers.py --check` | paper sources; recorded results |
+| `tables` | Tables 1-8 equal paper_assets/tables/ byte for byte, ranking marks included | `python scripts/make_tables.py all --check` | recorded results |
+| `figures` | the plotted data of Figures 2-4 equal the recorded data (results/recorded/figures_v0/; Figure 3: the data of the paper's figure); fonts embedded, text at least 7 pt; Figure 4 without its image panels | `python scripts/make_figures.py all --check --no-images` | recorded results; validation score cache (assets) |
 | `results-docs` | docs/results/*.md, docs/registration_log.md and docs/naming.md are up to date | `python scripts/make_results_docs.py --check` | recorded results; configs |
-| `paper-pins` | the paper's tables, figures, captions and sections equal their pinned sha256 (configs/paper_pins.json) | `python scripts/paper_pin.py check` | paper sources |
 
 To write the outputs instead of checking them: `python scripts/make_tables.py`, `python scripts/make_figures.py` (Figure 4's image
-panels need `CCP_DATA`), `python scripts/paper_numbers.py`, `python scripts/make_results_docs.py`.
+panels need `CCP_DATA`), `python scripts/make_results_docs.py`. Figure 1 is a diagram drawn by hand, not generated; Figures 1 and 4 show
+mini-ImageNet images and are not redistributed.
 
 ## Tier 2: from the released checkpoints (GPU)
 
@@ -118,3 +107,33 @@ manifests only (`tests/test_test_reevaluation.py`).
 
 Training is documented, not re-run for this release. GPU non-determinism means that retrained weights differ slightly from the released
 ones; evaluate a retrained checkpoint on validation (tier 2) after pinning its sha256 in its host configuration.
+
+## Quickstart: DNPG with CCP on mini-ImageNet validation
+
+```bash
+export CCP_DATA=~/ccp-data CCP_ASSETS=~/ccp-assets CCP_CKPT=~/ccp-ckpt:$CCP_ASSETS/checkpoints
+python third_party/clone.py DNPG
+python scripts/build_bank.py --host dnpg_mini_seed0 --shot 1        # byte-identical to the pinned sha256
+python scripts/evaluate.py --host dnpg_mini_seed0 --episodes valA_fsor_5way_1shot valB_fsor_5way_1shot --save-scores
+# valB AUROC: host score 76.29, H_fix 77.31, K_fix 76.64, CCP-A 76.54 (equal to the recorded dry run of round (iii),
+# results/recorded/validation/fsor_final_dryrun_val_mini-dnpg.json)
+```
+
+## Repository map
+
+```
+ccp/                 the package: embedding.py (Eqs. 1-2), cohort.py (Eqs. 3-6), fusion.py (Eq. 7), scg.py (Eq. 8), scores/ (one
+                     module per score), baselines.py, stats.py, metrics.py, episodes.py, data/, hosts/, pipeline.py, naming.py,
+                     recorded.py, registration.py, assets.py
+configs/             hosts/ (checkpoints, banks, frozen fusion weights, sha256), datasets/ (incl. the class names of Figure 4),
+                     ccp/registered.yaml
+manifests/           fixed episode manifests (indices only; verbatim)
+scripts/             reproduce.py, make_tables.py, make_figures.py, figures/, make_results_docs.py, derive_paired.py, evaluate.py,
+                     build_bank.py, rounds/ (the registered rounds), fidelity/, prepare_data/, train/
+results/             recorded results of the eight rounds and derived records (verbatim), checks/ (checks of this release); PROVENANCE.md
+bundles/             approval file and STARTED / DONE markers of rounds (v)-(viii) (verbatim)
+paper_assets/        Tables 1-8 and Figures 2-3 of the paper
+docs/                protocol.md, naming.md, data.md, checkpoints.md, registration_log.md, results/, preregistration/
+third_party/         clone.py (pinned commits), patches/dnpg.patch, fonts/ (Liberation Sans, OFL), shims/
+tests/               pytest; data and GPU tests are opt-in (CCP_TEST_DATA=1, CCP_TEST_GPU=1)
+```

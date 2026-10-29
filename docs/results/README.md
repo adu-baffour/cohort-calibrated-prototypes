@@ -7,12 +7,11 @@ from the recorded results (results/PROVENANCE.md).
 |---|---|
 | [seeds.md](seeds.md) | Per-seed results of FRN and DNPG (mini-ImageNet, CUB) |
 | [oscr_fpr95.md](oscr_fpr95.md) | OSCR and FPR95 of every recorded row of rounds (vii) and (viii) |
-| [baselines.md](baselines.md) | Selected baseline settings (former Supplementary Table S9), every paired difference with its CI, round (v) rows |
+| [baselines.md](baselines.md) | Selected baseline settings, every paired difference with its CI, round (v) rows |
 | [checkpoints.md](checkpoints.md) | Every host checkpoint with its sha256 and source |
 | [implementation_checks.md](implementation_checks.md) | Fidelity checks of the host implementations, registration tokens, other checks |
 | [validation_decisions.md](validation_decisions.md) | The registered validation criteria and their outcomes before each round |
 | [ablations_variants.md](ablations_variants.md) | Ablations (valA and valB), method variants (valB, valC, test), bank geometry |
-| [figures/](figures/README.md) | Repository figures (former Supplementary Figures S1-S3) |
 
-The registration log is [docs/registration_log.md](../registration_log.md); every number of the paper's text is matched to its source in
-[docs/paper_numbers.md](../paper_numbers.md).
+The registration log is [docs/registration_log.md](../registration_log.md); the names used in the recorded files are mapped to the
+paper's names in [docs/naming.md](../naming.md).

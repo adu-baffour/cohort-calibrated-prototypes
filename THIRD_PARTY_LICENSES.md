@@ -53,7 +53,7 @@ SOFTWARE.
 
 The patch's own changes are under this repository's licence (LICENSE).
 
-### Class names (`figures/src/mini_class_names.tsv`)
+### Class names (`configs/datasets/mini_class_names.tsv`)
 
 The public ImageNet-1k synset names of the 100 mini-ImageNet classes (text only), used for the labels of Figure 4.
 
@@ -85,8 +85,7 @@ The full licence texts are in each clone (`third_party/<name>/LICENSE`) after `p
 | Per-episode test metrics, validation score caches | this work: metrics and scores computed on the datasets | numbers only, no images; the datasets' terms apply to their use | release assets |
 | mini-ImageNet, tieredImageNet (ImageNet), CIFAR-100, CUB-200-2011 images | their sources (docs/data.md) | each dataset's terms (ImageNet: non-commercial research and education) | **no** |
 
-Figures 1 and 4 of the paper contain mini-ImageNet images and are therefore not part of this repository (README, "Figures with dataset
-images"); `scripts/release_scan.py` fails on any tracked file that contains dataset images.
+Figures 1 and 4 of the paper contain mini-ImageNet images and are therefore not part of this repository (README).
 
 Python packages (requirements.txt) are installed from PyPI and keep their own licences; `ftfy` (Apache-2.0), `regex` (Apache-2.0 and
 CNRI-Python) and `wcwidth` (MIT) are needed only to import the official `clip` package for the loader check.

@@ -5,8 +5,8 @@
 The reports were written by the registered code when each round ran; their text uses the names of the registration documents (for
 example D1, V1, H2b, B1-B9), which differ from the paper's names (docs/naming.md). This module therefore reads the recorded files with
 their original keys and keeps the original report text, so that the re-rendered files can be compared with the recorded ones byte for byte.
-It is the one place outside docs/naming.md, ccp/naming.py and the recorded files where those names appear (scripts/release_scan.py exempts
-it). The paper's tables and figures are made by scripts/make_tables.py and scripts/make_figures.py under the paper's names.
+It is the one place outside docs/naming.md, ccp/naming.py and the recorded files where those names appear. The paper's tables and
+figures are made by scripts/make_tables.py and scripts/make_figures.py under the paper's names.
 
 Re-rendered from the recorded JSON and the per-episode release assets (no test images, features or scores are opened):
   fsor              results/recorded/test/RESULTS_fsor.md (rounds (i)-(iv)), mini_{dnpg,snatcher}_test_paired.md,

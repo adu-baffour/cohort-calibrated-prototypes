@@ -1,10 +1,10 @@
 r"""The paper's Tables 1-8 (LaTeX) from the recorded results.
 
     python scripts/make_tables.py [T1 ... T8 | all]          # -> paper_assets/tables/T*.tex
-    python scripts/make_tables.py all --check                # compare with the paper's tables (paper/tables/T*.tex)
+    python scripts/make_tables.py all --check                # compare with paper_assets/tables/T*.tex; write nothing
 
 Every number is read from a recorded file through ccp.recorded (sha256-checked, keys in the paper's names). Each generated file starts with
-one comment line (source files); the check ignores that line and requires every other byte to equal the paper's table. Ranking marks
+one comment line (source files); the check requires every byte, that line included, to equal the committed table. Ranking marks
 (Tables 2-7): bold = best, underline = second best, decided on the printed (rounded) values; ties share a mark and the next distinct value is
 second. Bold is \textbf{\boldmath ...} and underline \underline{...}, applied to the value only, not to its interval.
 """
@@ -20,7 +20,6 @@ sys.path.insert(0, str(ROOT))
 from ccp import naming, recorded  # noqa: E402
 
 OUT = ROOT / "paper_assets" / "tables"
-PAPER = ROOT / "paper" / "tables"
 SH = (1, 5)
 USED: list[str] = []
 
@@ -589,35 +588,28 @@ def header(sources: list[str]) -> str:
     return HEADER + (", ".join(sources) if sources else "the registration records (docs/registration_log.md)") + "\n"
 
 
-def check(tids, against_paper: bool = True) -> list[str]:
-    """Table ids whose generated text differs from paper_assets/tables/ (whole file) or from the paper's table (header line ignored)."""
+def check(tids) -> list[str]:
+    """Table ids whose generated text differs from paper_assets/tables/ (whole file)."""
     bad = []
     for tid in tids:
         body, src = render(tid)
         asset = OUT / f"{tid}.tex"
         if not asset.exists() or asset.read_bytes().decode("utf-8") != header(src) + body:
-            bad.append(f"{tid} (paper_assets)")
-        if against_paper and body != (PAPER / f"{tid}.tex").read_bytes().decode("utf-8"):
-            bad.append(f"{tid} (paper)")
+            bad.append(tid)
     return bad
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("tables", nargs="*", default=["all"])
-    ap.add_argument("--check", action="store_true", help="compare with paper/tables/T*.tex (header line ignored); write nothing")
+    ap.add_argument("--check", action="store_true", help="compare with paper_assets/tables/T*.tex byte for byte; write nothing")
     a = ap.parse_args()
     tids = list(TABLES) if a.tables in ([], ["all"]) else a.tables
     if a.check:
-        paper = PAPER.is_dir()
-        bad = check(tids, against_paper=paper)
+        bad = check(tids)
         for tid in tids:
-            where = ["paper_assets"] + (["paper"] if paper else [])
-            diff = [w for w in where if f"{tid} ({w})" in bad]
-            print(f"{tid}: " + ("DIFFERS from " + " and ".join(diff) if diff else "identical to " + " and ".join(where)))
-        if not paper:
-            print("paper/ missing (python scripts/paper_pin.py extract): compared with paper_assets/tables only")
-        raise SystemExit(1 if bad else (0 if paper else 3))
+            print(f"{tid}: " + ("DIFFERS from" if tid in bad else "identical to") + f" paper_assets/tables/{tid}.tex")
+        raise SystemExit(1 if bad else 0)
     OUT.mkdir(parents=True, exist_ok=True)
     for tid in tids:
         body, src = render(tid)

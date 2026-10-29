@@ -8,12 +8,6 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-# Release 1.5.0 of the authors' earlier release repository (private) (a git checkout, read only) for the differential and provenance-source tests: set CCP_OLD_PKG to
-# its path. Unset or invalid: those tests are skipped with this reason; every other test runs on a clean clone without it.
-OLD_REPO = Path(os.environ["CCP_OLD_PKG"]) if os.environ.get("CCP_OLD_PKG") else None
-OLD_REASON = ("differential / provenance-source tests need a checkout of release 1.5.0: set CCP_OLD_PKG to its path"
-              if OLD_REPO is None else f"CCP_OLD_PKG={OLD_REPO} is not a checkout of release 1.5.0 (no ccp/cohort.py or .git)")
-OLD_AVAILABLE = OLD_REPO is not None and (OLD_REPO / "ccp" / "cohort.py").exists() and (OLD_REPO / ".git").exists()
 
 
 def pytest_collection_modifyitems(config, items):
